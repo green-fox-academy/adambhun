@@ -1,0 +1,32 @@
+body{
+    background-image: url("assets/paper.jpg")
+}
+*{
+    font-family: "Arial";
+    font-weight: 600;
+}
+header{
+    background:rgba(128,128,128);
+}
+header h1, div{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#AddPost Content, #Posts p{
+    border-style: solid;
+    border-width: 1px;
+}
+header h1, #AddPost h2, #Posts h2, #Posts h3{
+    font-weight: lighter;
+}
+#Posts p, #Posts h3 span, #Posts h2 span, #AddPost form span{
+    background-color: rgba(128,128,128,0.4);
+    padding: 5px;
+}
+#AddPost form span{
+    line-height: 200%;
+}
+#AddPost button{
+    color: blue;
+    font-size: 150%;
+}

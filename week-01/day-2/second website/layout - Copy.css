@@ -1,0 +1,23 @@
+body{
+    background-image: url("assets/paper.jpg")
+}
+*{
+    font-family: "Arial";
+}
+header{
+    background:rgba(128,128,128,0.5);
+}
+header h1, div{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#AddPost Content, #Posts p{
+    border-style: solid;
+    border-width: 1px;
+}
+header h1, #AddPost h2, #Posts h2, #Posts h3{
+    font-weight: lighter;
+}
+#Posts p, #Addpost h2, #Addpost Title, #Addpost Content{
+    background-color: rgba(128,128,128,0.5);
+}

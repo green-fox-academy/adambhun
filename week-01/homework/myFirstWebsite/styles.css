@@ -1,0 +1,51 @@
+﻿.navigation{
+    padding-right: 10%;
+    background-color: #333333;
+    background-image: url("assets/logo.svg");
+    background-repeat: no-repeat;
+    background-position: center left 10%;
+    overflow: hidden;
+}
+.navigation a{
+    float: right;
+    text-align: center;
+    color: #ff0099;
+    text-transform: uppercase;
+    padding: 15px 15px;
+}
+h1{
+    padding-top: 2em;
+}
+h2{
+    color: #ff0099;
+}
+h2 + p{
+    font-family: "consolas";
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 1em;
+}
+#intro::after{
+    content: "- - -";
+    position: absolute;
+    left: 50%;
+}
+dl p{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Ubuntu"; 
+    font-size: 150%;
+}
+title, h1, h2, dt{
+    font-weight: bold;
+    font-family: "Ubuntu";
+    margin-left: 10%;
+    margin-right: 10%;
+}
+dd{
+    font-family: "consolas";
+    font-size: small;
+    line-height: 1.6;
+    margin-left: 10%;
+    margin-right: 10%;
+}
