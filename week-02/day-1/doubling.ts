@@ -6,8 +6,8 @@
 
 let baseNum : number = 123;
 
-function doubling (baseNum: number){
-    return baseNum*2;
+function doubling (input: number){
+    return input*2;
 }
 
-console.log(baseNum*2);
+console.log(doubling(baseNum));

@@ -1,29 +1,25 @@
 'use strict';
 
+
 let lineCount: number = 4;
-let lineCntr: number = 0;
-let lineCntr2: number = lineCount+1;
-let spcCntr: number = lineCount+1;
-let astCntr: number = 0;
+let astnum: number = 0;
 
 let spaces: string = '';
-let asts: string = '';
-let final: string;
+for (let index = 0; index < lineCount+1; index++) {
+    spaces += ' ';
+}
+let asts: string = '*';
 
-for(lineCntr; lineCntr !== lineCount; lineCntr++){
-    for(spcCntr; spcCntr !== 0; spcCntr--){
-        spaces += 'f';
-    }
-    for(astCntr; astCntr !== lineCount; astCntr++){
-        asts += '*';
-    }
-final = spaces + asts;
-console.log(final);
+//first line
+console.log(spaces);
+
+while(astnum !== lineCount){
+    console.log(spaces+asts);
+    asts += '**';
+    spaces = spaces.substring(0,lineCount - astnum);
+    astnum++;
 }
 
-
-
-// négy számláló, 3 while(léptet, space, ast)
 
 //pyramid like this:
 //
