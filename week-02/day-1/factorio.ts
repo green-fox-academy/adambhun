@@ -6,10 +6,13 @@
 function factorio(num: number){
     let nums: number[];
     nums = [];
-    let numplchld: number = num;                    //stores initial paramter value
-    for (let index = 1; index < num+2; index++) {  //creates array
+    let accu: number = 1;
+    for (let index = 1; index < num+1; index++) {  //creates array
         nums.push(index); 
+        accu *= index;
     }
-    console.log(nums[0] * ...)              //rest parameter
-    }
+    console.log(accu);
+                  //rest parameter | note: spread may be better
 }
+
+factorio(5);
