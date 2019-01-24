@@ -15,28 +15,26 @@ function drawhorline(x: number) {
     //draw from here
     let xc = 0;
     let yc = 0;
-    let i = 0;
+    let index = 0;
     //make the rest run x times
-    for (let index = 0; index < 20; index++) 
+    for (index; index < 20; index++) 
         {
-    for (i; i < canvas.width+1; i += x) {
-    //check if second then draw horizontally
-        if(i === canvas.width) {
-            yc += x;
-            i = 0;
-        }
-        if(i / x % 2 === 0){
+            for (let i = 0; i < canvas.width; i += x) {
+                yc += x;
+                i = 0;
+            } 
+            //check if second then draw horizontally
+        if(index / x % 2 === 0){
+            ctx.fillStyle = 'red';
             ctx.fillRect(xc, yc, x, x);
-            ctx.fillStyle = 'white';
             xc += x;
         }else {
-            ctx.fillRect(xc, yc, x, x);
             ctx.fillStyle = 'black';
+            ctx.fillRect(xc, yc, x, x);
             xc += x;
+            }
         }
-        }
-    }
+    yc += x;
 }
-
 
 drawhorline(100);
