@@ -29,7 +29,7 @@ function tri(x, y) {
     ctx.lineTo(x + t / 2, y + height);
     ctx.lineTo(x - t / 2, y + height);
     ctx.lineTo(x, y);
-    ctx.moveTo(x + t, y)
+    ctx.moveTo(x + t, y);
     ctx.closePath();
     ctx.strokeStyle = 'black';
     ctx.stroke();

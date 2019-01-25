@@ -11,14 +11,14 @@ const ctx = canvas.getContext('2d');
 // variables for pos and lineto
 //for(linedraw, variables++)
 
-let unit: number = canvas.width / 16;
+let unit: number = canvas.width / 64;
 let sx: number = 0;
 let sy: number = 0;
 let ex: number = 0;
 let ey: number = canvas.height;
 let color: string = 'green';
 
-function draw(sx, sy, ex, ey, color) {
+function draw(sx, sy, ex, ey) {
     ctx.beginPath();
     ctx.moveTo(sx, sy);
     ctx.lineTo(ex, ey);
@@ -28,26 +28,56 @@ function draw(sx, sy, ex, ey, color) {
 
 //bottom left
 while (ex !== canvas.width + unit) {
-    draw(sx, sy, ex, ey, color);
+    draw(sx, sy, ex, ey);
     sy += unit;
     ex += unit;
 }
 
 //bl finished, adjust
 if (ex === canvas.width +unit) {
-    color = 'purple';
     sx = 0;
     sy = 0;
     ex = canvas.width;
     ey = unit;
     //start top right
     while (ey !== canvas.height + unit) {
-        draw(sx, sy, ex, ey, color);
+        color = 'purple';
+        draw(sx, sy, ex, ey);
         sx += unit;
         ey += unit;
     }
 }
 
+
+//tr finished, adjust
+if (ey === canvas.width +unit) {
+    sx = canvas.width;
+    sy = 0;
+    ex = canvas.width - unit;
+    ey = canvas.height;
+    //start br
+    while (ex !== 0 - unit) {
+        color = 'red';
+        draw(sx, sy, ex, ey);
+        sy += unit;
+        ex -= unit;
+    }
+}
+
+//br finished, adjust
+if (ex === 0 - unit) {
+    sx = 0;
+    sy = canvas.height;
+    ex = unit;
+    ey = 0;
+    //start tl
+    while (ex !== canvas.height + unit) {
+        color = 'blue';
+        draw(sx, sy, ex, ey);
+        sy -= unit;
+        ex += unit;
+    }
+}
 
 
 //this works, but could be shorter
