@@ -1,5 +1,5 @@
 'use strict';
-export { }
+export { Sharpie }
 
 class Sharpie {
   color;
