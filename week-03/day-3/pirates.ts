@@ -1,0 +1,9 @@
+class Pirate {
+  drinkSomeRum() {
+
+  }
+
+  howsItGoingMate() {
+    
+  }
+}

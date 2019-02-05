@@ -62,7 +62,6 @@ diceSet.roll();
 
 //while dice X is not 6, reroll, if yes X+1+
 let x: number = 0;
-let y: number = 0;
 while (diceSet.getCurrent(6) !== 6) {
     while (diceSet.getCurrent(x) !== 6) {
         diceSet.reroll(x);
