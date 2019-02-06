@@ -77,6 +77,8 @@ class Garden {
     this.trees.forEach(element => {
       console.log(element.color, element.water);      
     });
+
+    this.needsWater = 0;
   }
 }
 
@@ -91,9 +93,13 @@ let garden1 = new Garden([yellow, blue], [purple, orange]);
 //SOLUTION: if plant needs to be watered increment needsWater by 1, then div water by counter, then water plants
 
 garden1.watering(40);
+console.log(garden1.needsWater);
+
 
 garden1.watering(70);
+console.log(garden1.needsWater);
 
 garden1.watering(200);
+console.log(garden1.needsWater);
 
 garden1.watering(30);
