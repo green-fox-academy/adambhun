@@ -20,3 +20,5 @@ class Angrm {
     return false;
   }
 }
+
+export {Angrm}
