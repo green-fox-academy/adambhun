@@ -11,7 +11,7 @@ let offensiveWords: string[] = ['fuck', 'bloody', 'cock', 'shit', 'fucker', 'fuc
 function familyFriendlizer(text, blacklist) {
   let fs = require('fs');
   let fileContent = fs.readFileSync(text, 'utf-8');
-  let textArray = fileContent.split(/\W+/);
+  let textArray = fileContent.toLowerCase().split(/\W+/);
   let counter: number = 0;
 
   for (let index2 = 0; index2 < textArray.length; index2++) {
