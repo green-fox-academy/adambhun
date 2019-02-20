@@ -1,0 +1,18 @@
+'use strict';
+export {};
+
+let map: Object = {};
+
+map['978-1-60309-452-8'] = 'A Letter to Jo';
+map['978-1-60309-459-7'] = 'Lupus';
+map['978-1-60309-444-3'] = 'Red Panda and Moon Bear';
+map['978-1-60309-461-0'] = 'The Lab';
+
+let keys = Object.keys(map);
+let values = keys.map(key => map[key]);
+
+keys.forEach(function(element, index) {
+  console.log(`${values[index]} (ISBN: ${element})`)
+});
+
+map.
