@@ -1,5 +1,5 @@
 'use strict';
-export {};
+export { };
 
 let map: Object = {};
 
@@ -11,8 +11,18 @@ map['978-1-60309-461-0'] = 'The Lab';
 let keys = Object.keys(map);
 let values = keys.map(key => map[key]);
 
-keys.forEach(function(element, index) {
-  console.log(`${values[index]} (ISBN: ${element})`)
-});
+// keys.forEach(function(element, index) {
+//   console.log(`${values[index]} (ISBN: ${element})`)
+// });
 
-map.
+delete map['978-1-60309-444-3'];
+delete map[keys[values.indexOf('The Lab')]];
+
+map['978-1-60309-450-4'] = 'They Called Us Enemy';
+
+// Object.defineProperty(map, 'ar', {
+//   value: 'Why Did We Trust Him?'
+// });
+
+
+console.log(map);
