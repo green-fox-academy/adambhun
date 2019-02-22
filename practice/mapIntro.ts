@@ -1,9 +1,9 @@
 'use strict';
 export {};
 
-let map: object = {};
+let izeke: object = {};
 
-map = {
+izeke = {
   97: 'a',
   98: 'b',
   99:	'c',
@@ -11,18 +11,25 @@ map = {
   66:	'B',
   67:	'C'
 };
-console.log(map);
+console.log(izeke);
 
-let keys = Object.keys(map);
+let keys = Object.keys(izeke);
 console.log(keys);
-let values = keys.map(key => map[key]);
+let values = keys.map(key => izeke[key]);
 console.log(values);
 
-map[68] = 'D';
+izeke[68] = 'D';
 
 console.log(keys.length);
-console.log(map[99]);
-delete(map[97]);
-console.log(map);
+console.log(izeke[99]);
+delete(izeke[97]);
+console.log(izeke);
 
-console.log(map[100]);
+console.log(izeke[100]);
+
+for (let key in izeke) {
+  delete(izeke[key]);
+}
+
+console.log(izeke);
+
