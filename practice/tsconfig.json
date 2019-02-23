@@ -1,5 +1,13 @@
 {
-  "compilerOptions": {
-    "lib": [ "es7", "dom" ]
-  }
+ "compilerOptions": {
+   "sourceMap": true,
+   "noImplicitAny": true,
+   "module": "commonjs",
+   "target": "es6",
+   "lib": [
+     "dom",
+     "es2017",
+     "es7"
+   ],
+ },
 }
