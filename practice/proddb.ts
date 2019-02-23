@@ -11,16 +11,18 @@ map['Bread'] = 50;
 map['Chicken'] = 550;
 
 console.log(map['Fish']);
-let products = Object.keys(map);
-let prices = products.map(price => map[price]);
+let products: string[] = Object.keys(map);
+let prices: number[] = products.map(price => map[price]);
+let sorted: number[] = [];
+prices.forEach(function(element){
+  sorted.push(element);
+});
 
-function expensive() {
-  prices.sort(function(a, b) {
-    return a-b;
-  });
-  return prices[prices.length - 1];
-}
-console.log(products[prices.indexOf(expensive())]);
+sorted.sort(function(a, b) {
+  return a-b;
+});
+
+console.log(products[prices.indexOf(sorted[sorted.length - 1])]);
 
 let sum: number = prices.reduce(function(accu, current) {
   accu += current;
@@ -49,3 +51,6 @@ function lessThan125(params: any) {
 }
 
 lessThan125(prices);
+
+
+console.log(products[prices.indexOf(sorted[0])]);
