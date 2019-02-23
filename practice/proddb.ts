@@ -38,10 +38,14 @@ for (let index = 0; index < prices.length; index++) {
 
 console.log(cheap);
 
-prices.forEach(element => {
-  if (element === 125) {
-    console.log('yes');
-  } else { console.log('no');
-  }
-});
+function lessThan125(params: any) {
+  let answer: string = 'No';
+  params.forEach(element => {
+    if (element === 125) {
+      answer = 'Yes';
+    }
+  });
+  console.log(answer);
+}
 
+lessThan125(prices);

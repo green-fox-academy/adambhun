@@ -1,0 +1,173 @@
+# Megalotis Foundation Normal Exam
+
+## Getting Started
+
+- Fork this repository under your own account
+- Clone the forked repository to your computer
+- Create a `.gitignore` file so generated files won't be committed
+- Commit your progress frequently and with descriptive commit messages
+- All your answers and solutions should go into your forked repository
+
+## Keep in mind
+
+- You can use any resource online, but **please work individually**
+- **Don't just copy-paste** your answers and solutions, use your own words instead
+- **Don't push your work** to GitHub until your mentor announces that the time is up
+
+## Dictionary
+
+In the following exercise descriptions we are using the abstract name of the data structures.
+
+| Abstract name | Java                   | TypeScript       | C++                |
+|:--------------|:-----------------------|:-----------------|:-------------------|
+| list          | [ArrayList][java-list] | [Array][ts-list] | [vector][cpp-list] |
+| map           | [HashMap][java-map]    | [Object][ts-map] | [map][cpp-map]     |
+
+## Exercises
+
+### Exercise 1
+
+- Write a function which takes two parameters, a list of integers (*arr*) and an integer (*n*).
+- The function should return a **new** array.
+- The return value should be built from *arr* but each *n*-th value must be replaced with its value times the maximum value from the *arr*.
+- Do not use the built-in sort() and max() method to find the maximum value.
+- Write 2 different test cases for the function (at least one must be different than the examples below).
+
+#### Example 1
+
+Input
+
+```txt
+arr = [0, 1, 5, 4]
+n = 3
+```
+
+Output
+
+```txt
+[0, 1, 25, 4]
+```
+
+#### Example 2
+
+Input
+
+```txt
+arr = [0, 3, 5, 4, 3, 6]
+n = 2
+```
+
+Output
+
+```txt
+[0, 18, 5, 24, 3, 36]
+```
+
+### Exercise 2
+
+Now you are going to write a weekly feedback evaluator program. In a fictive world there is only one mentor with the class and we store the feedback responses in a simple `txt` file.
+Since we wanted to be quick we saved only the raw data. In [this file](responses.txt) within
+
+- each line represents a submitted feedback from an apprentice
+- the mentor is *rated* in 4 different metrics, those are respectively (*matReview*, *presSkills*, *helpfullness*, *explanation*) separated with 1 space
+
+#### Input description
+
+m = matReview
+p = presSkills
+h = helpfulness
+e = explanation
+
+```txt
+m p h e
+1 3 5 3   // this line is an answer from an apprenitce
+2 3 4 3   // this is another response
+...
+```
+
+#### Task
+
+We would like to know what is the average rating (in each metric) of our mentor. Please write a method which can read and parse [the example file](responses.txt) and generates the desired output.
+
+- The method should have one parameter, the file path
+- The method should write to the console if the file was not found and stop gracefully
+- The method should return a map containing the average rating in our well-known metrics
+
+```js
+{
+  matReview => 2.25,
+  presSkills => 4.0, // or 4 is fine as well
+  helpfulness => 4.5,
+  explanations => 3.75
+}
+```
+
+### Exercise 3
+
+In this exercise you will create an order manager application for a restaurant. We need to track the status of an order and check the availability of the ingredients. You can read the specification below
+
+#### Dish
+
+Create a `Dish` class, this will represent a dish what can be ordered from the restaurant. It has 2 private fields (these fields must be set through the constructor)
+
+- `name` - the name of the dish
+- `ingredients` - where we want to store the ingredients' name and amount
+  - For the sake of simplicity in our fictive world there are only two ingredients: `ingredient1` and `ingredient2`
+
+and one public method
+
+- `getIngredients()` - which returns the ingredients field
+
+#### Orders
+
+Create an `Order` class with 3 private fields
+
+- `id` - a randomly generated number (1000 < x <= 9999) for each order it cannot be set as constructor argument
+- `status` - a string, its default value is created, cannot be set as constructor argument
+- `dishes` - a `Dish` array which is set through the constructor as argument
+
+and 4 methods
+
+- `delay()` - it sets the `status` field to `waiting`
+- `deliver()` - it sets the `status` field to `delivered`
+- `reject()` - it sets the `status` field to `rejected`
+- `getDishes()` - it returns the `Dish`es associated with the `Order`
+
+Create an `OnlineOrder` class which is a special `Order`, it has one more private field
+
+- `address` - a string, which can be set through the constructor just like the `dishes`
+
+Finally create an `OfflineOrder` which is a special `Order`, it has one more private field
+
+- `table` - a number, it is set from the constructor just like the `dishes`
+
+#### Restaurant
+
+Create a `Restaurant` class. This class will process the orders. It has 1 private field which must be set through the constructor.
+
+- `inventory` - it will hold the available ingredients (it will have only two keys, `ingredient1` and `ingredient2`)
+
+and 1 public method
+
+- `receiveOrder(order)` - it takes an `Order` as argument.
+  - if the dishes in the order can be made (there is enough ingredients in the inventory) then it must reduce the resources in the inventory and call the deliver method on the order
+  - if there is not enough ingredients and the parameter is an online order then it must call the delay method of the order
+  - otherwise it must reject the order
+  - finally it must return the order
+
+## Questions
+
+### Describe the way *Single Responsibility Principle* is used in Exercise 3
+
+The methods of each class change the fields of their respective classes only.
+
+### Tell us an important benefit of compiled languages
+
+Certain types of error can be caught before runtime (at compiling.) Eg.: syntax errors, incorrect naming, .
+
+[ts-list]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[ts-map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[java-list]: https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+[java-map]: https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
+[cpp-list]: https://en.cppreference.com/w/cpp/container/vector
+[cpp-map]: https://en.cppreference.com/w/cpp/container/map
