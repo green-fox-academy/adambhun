@@ -1,28 +1,35 @@
 'use strict';
 export { };
 
-let map: Object = {};
+let shop: Object = {};
 
-map['Eggs'] = 200;
-map['Milk'] = 200;
-map['Fish'] = 400;
-map['Apples'] = 150;
-map['Bread'] = 50;
-map['Chicken'] = 550;
+shop['Eggs'] = 200;
+shop['Milk'] = 200;
+shop['Fish'] = 400;
+shop['Apples'] = 150;
+shop['Bread'] = 50;
+shop['Chicken'] = 550;
 
-let products = Object.keys(map);
-let prices = products.map(price => map[price]);
+let products = Object.keys(shop);
+let prices = products.map(price => shop[price]);
 
+let lessThan: Object = {};
+Object.assign(lessThan, shop);
 
-for (let property1 in map) {
-  if (map[property1] < 201) {
-   console.log(products[prices.indexOf(map[property1])]);    
+for (let property1 in shop) {
+  if (shop[property1] >= 201) {
+    delete(lessThan[property1]);
+  }
+}
+console.log(`<201 \n ${Object.keys(lessThan)}`);
+
+let greaterThan: Object = {};
+for (let property1 in shop) {
+  if (shop[property1] > 150) {
+    greaterThan[property1] = shop[property1];
   }
 }
 
-for (let property1 in map) {
-  if (map[property1] > 150) {
-   console.log(products[prices.indexOf(map[property1])], '-', map[property1]);    
-  }
-}
+console.log(`\n >150 \n`, greaterThan);
 
+// console.log(`\n >150 \n ${greaterThan}`);    --- Why does this log [object Object]?????
