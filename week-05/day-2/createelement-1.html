@@ -11,6 +11,25 @@
     </ul>
     <div class="container"></div>
 
+    <script>
+      const liiist = document.querySelectorAll('.asteroid');
+      const gfa = document.createElement('li');
+      gfa.innerHTML = 'The Green Fox';      
+      liiist[1].appendChild(gfa);
+      
+      const lampl = document.createElement('li');
+      lampl.innerHTML = 'The Lamplighter';
+      liiist[liiist.length - 1].appendChild(lampl);
+
+      const hedding = document.createElement('h1');
+      hedding.innerHTML = 'I can add elements to the DOM!';
+      document.querySelector('.container').append(hedding);
+
+      const pic = document.createElement('img');
+      pic.setAttribute('src', 'https://embarkvet.com/wp-content/uploads/2018/07/LabradorRetriever.jpg');
+      document.querySelector('.container').prepend(pic);
+    </script>
+
     <!-- You can work in the html or in a separate js file. Like:
     <script>
       Add an item that says 'The Green Fox' to the asteroid list.
