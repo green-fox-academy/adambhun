@@ -22,9 +22,13 @@
 
     <script>
       const button = document.querySelector('button');
+      button.innerHTML = 'Party OFF';
       button.onclick = () => {
-        document.querySelector('body').classList.add(document.querySelector('.party'));
-      }
+        (button.textContent === 'Party OFF') ?
+        (button.innerHTML = 'Party ON',
+        document.querySelector('div').style.background = 'url(https://media.giphy.com/media/4c4jQPdVv381G/giphy.gif)') :
+        (document.querySelector('div').style.background = 'black', button.innerHTML = 'Party OFF');
+      }      
     </script>
 
     <!-- You can work in the html or in a separate js file. Like:
