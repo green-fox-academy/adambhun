@@ -1,13 +1,26 @@
-.container {
-  width: 800px;
-  height: 400px;
+.container{
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  width: 400px;
+  height: 100vh;
+}
+.item {
+  width: auto;
+  height: auto;
 }
 
-.item_green{
-  width: 20%;
-  height: 100%;
-  align-self: flex-end;
+.green {
+  background-color: rgb(126, 219, 172);
+  flex-grow: 1;
+  order: 0;
+}
+.yellow {
+  background-color: rgb(246, 220, 147);
+  flex-grow: 2;
+  order: 2;
+}
+.purple {
+  background-color: rgb(197, 126, 219);
+  flex-grow: 1;
+  order: 1;
 }
