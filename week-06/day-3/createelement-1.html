@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: CreateElement</title>
+  </head>
+  <body>
+    <ul class="asteroids">
+      <li id="b325" class="asteroid">The King</li>
+      <li class="asteroid b326">The Conceited Man</li>
+    </ul>
+    <div class="container"></div>
+
+    <script>
+      const liiist = document.querySelectorAll('.asteroid');
+      const gfa = document.createElement('li');
+      gfa.innerHTML = 'The Green Fox';      
+      liiist[1].appendChild(gfa);
+      
+      const lampl = document.createElement('li');
+      lampl.innerHTML = 'The Lamplighter';
+      liiist[liiist.length - 1].appendChild(lampl);
+
+      const hedding = document.createElement('h1');
+      hedding.innerHTML = 'I can add elements to the DOM!';
+      document.querySelector('.container').append(hedding);
+
+      const pic = document.createElement('img');
+      pic.setAttribute('src', 'https://embarkvet.com/wp-content/uploads/2018/07/LabradorRetriever.jpg');
+      document.querySelector('.container').prepend(pic);
+    </script>
+
+    <!-- You can work in the html or in a separate js file. Like:
+    <script>
+      Add an item that says 'The Green Fox' to the asteroid list.
+      Add an item that says 'The Lamplighter' to the asteroid list.
+      Add a heading saying 'I can add elements to the DOM!' to the .container.
+      Add an image, any image, to the container.
+    </script>
+    OR
+    <script src="createelement-1.js"></script> -->
+  </body>
+</html>
