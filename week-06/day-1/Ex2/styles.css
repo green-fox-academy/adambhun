@@ -1,0 +1,23 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  height: 40vh;
+  justify-content: center;
+}
+
+.yellow {
+  background-color: yellow;
+  flex-grow: 1;
+  flex-basis: 100%;
+  order: 1;
+}
+.purple {
+  background-color: purple;
+  flex-grow: 1;
+  position: absolute;
+  align-self: center;
+  height: 10%;
+  width: 10%;
+  order: 2;
+}

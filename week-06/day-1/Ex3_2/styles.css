@@ -1,0 +1,18 @@
+.container{
+  display: flex;
+  width: 100vh;
+  height: 25vh;
+  background-color: yellow;
+  order: 1;
+  align-items: center;
+  padding: 0;
+  justify-content: space-between;
+}
+
+.item {
+  list-style-type: none;
+  background-color: purple;
+  height: 50%;
+  width: 13%;
+  order: 2;
+}

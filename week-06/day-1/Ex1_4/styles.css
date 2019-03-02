@@ -1,19 +1,25 @@
 .container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 400px;
-  height: 20vh;
+  height: 100vh;
 }
 
 .green {
   background-color: green;
   flex-grow: 1;
+  flex-basis: 25%;
+  order: 1;
 }
 .yellow {
   background-color: yellow;
   flex-grow: 1;
+  flex-basis: 50%;
+  order: 3;
 }
 .purple {
   background-color: purple;
   flex-grow: 1;
+  flex-basis: 25%;
+  order: 2;
 }
