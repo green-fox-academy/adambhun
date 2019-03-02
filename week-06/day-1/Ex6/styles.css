@@ -1,0 +1,40 @@
+body {
+  width: 75vw;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+#header {
+  height: 10%;
+  background-color: turquoise;
+  padding: 10px;
+}
+
+#content{
+  width: 50%;
+  background-color: #ff0000;
+  padding: 10px;
+  margin-top: 0px;
+}
+
+span {
+  display: inline-block;
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  bottom: 1%;
+  left: 55%;
+}
+
+#right {
+  width: 10%;
+  background-color: purple;
+  padding: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 0px;
+}
