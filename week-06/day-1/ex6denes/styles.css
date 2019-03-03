@@ -1,0 +1,107 @@
+body{
+  margin: 10px auto;
+  max-width: 1000px;
+}
+p{
+  text-align: justify;
+}
+
+.header{
+  background-color: rgb(197, 126, 219);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.nav-links{
+  padding-right: 30px;
+  position: relative;
+  left: 20px;
+}
+
+.nav-links a{
+  background-color: rgb(126, 219, 204);
+  box-sizing: conent-box;
+  padding: 5px 10px;
+  height: 30px;
+}
+
+.social-media{
+  margin: 0;
+  height: 30px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-link{
+  margin: 0px 5px;
+  width: 30px;
+  background-color: rgb(126, 219, 204);
+}
+
+.content{
+  display: flex;
+  /* widows: 100%; */
+  height: 100%;
+  width: 100%
+}
+
+.main-content{
+  background-color: rgb(246, 220, 147);
+  width: 100%;
+}
+
+.text-field{
+  margin: 20px;
+}
+
+.boxes{
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+.box{
+  flex-basis: 100px;
+  height: 100px;
+  flex-grow: 1;
+  margin: 10px 10px;
+  padding: 0;
+}
+
+.red {
+  background-color: rgb(238, 123, 88)
+}
+
+.two-columns{
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+
+.article{
+  margin: 10px;
+  flex-basis: 100px;
+  flex-grow: 1;
+}
+
+.sidebar{
+  background-color: rgb(126, 219, 172);
+  width: 300px;
+}
+
+.purple{
+  background-color: rgb(83, 54, 92);
+}
+
+.bar{
+  height: 30px;
+  margin: 10px 10px;
+  padding: 0;
+}
