@@ -5,6 +5,7 @@ const app = express();
 const PORT = 8080;
 
 app.use('/assets', express.static('assets'));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -38,10 +39,32 @@ app.get('/greeter', (req, res) => {
 
 app.get('/appenda/:appendable', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
-  var input = req.query.appendable;
-  input === undefined ?
+  var input = req.params.appendable;
+  !input ?
   res.json({error: "404"}) :
   res.json({appended: `${input}a`});
+});
+
+app.post('/dountil/:action', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+  var action = req.params.action;
+  var num = req.body.until;
+  var arr = [];
+  for (let index = 1; index < num + 1; index++) {
+    arr.push(index);    
+  };
+  var sumres = arr.reduce(function(accu, x){
+    return accu += x;
+  });
+  var facres = arr.reduce(function(accu, x){
+    return accu *= x;
+  });
+  
+  ! num ?
+  res.json({error: "Please provide a number!"}) :
+  action === "sum" ?
+  res.json({result: sumres}) :
+  res.json({result: facres});
 });
 
 app.listen(PORT, () => {
