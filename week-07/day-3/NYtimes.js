@@ -18,7 +18,11 @@ httpRequest.onload = () => {
     lst2.innerHTML = payload.response.docs[0].snippet;
     let lst3 = document.createElement("li");
     lst3.innerHTML = payload.response.docs[0].pub_date;
+    let lnk = document.createElement("a");
+    lnk.href = payload.response.docs[0].web_url;
+    lnk.innerHTML = 'link to article';
     document.querySelector("body").appendChild(lst);
     document.querySelector("body").appendChild(lst2);
     document.querySelector("body").appendChild(lst3);
+    document.querySelector("body").appendChild(lnk);
 }
