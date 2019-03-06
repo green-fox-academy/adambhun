@@ -36,9 +36,9 @@ const planetData = [
 
 for (let i = 0; i < planetData.length; i++) {
   if (planetData[i].asteroid === true) {
-    let newLi = document.createElement('li');
-    astrds.appendChild(newLi);
-    newLi.innerHTML = planetData[i].content;
+      let newLi = document.createElement('li');
+      astrds.appendChild(newLi);
+      newLi.innerHTML = planetData[i].content;
     newLi.classList.add(planetData[i].category);
   }
 }

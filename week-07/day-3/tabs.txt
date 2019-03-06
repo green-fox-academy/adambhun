@@ -1,0 +1,5 @@
+https://developers.giphy.com/docs/#operation--gifs-search-get
+
+https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
+
+https://developers.giphy.com/docs/
