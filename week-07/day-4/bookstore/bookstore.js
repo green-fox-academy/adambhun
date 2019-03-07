@@ -38,21 +38,32 @@ app.get('/book_name', (req, res) => {
       return;
     }
     res.send(rows);
-    // console.log(rows);
+    console.log(rows);
   });
 });
 
-// app.get('/authors_name', (req, res) => {
-//   conn.query('SELECT aut_name FROM author;', (err, rows) => {
-//     if (err) {
-//       console.error(err);
-//       res.status(500).send();
-//       return;
-//     }
-//     res.send(rows);
-//     // console.log(rows);
-//   });
-// });
+app.get('/authors_name', (req, res) => {
+  conn.query('SELECT aut_name FROM author;', (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.send(rows);
+    console.log(rows);
+  });
+});
+app.get('/authors_name', (req, res) => {
+  conn.query('SELECT aut_name FROM author;', (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.send(rows);
+    console.log(rows);
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
