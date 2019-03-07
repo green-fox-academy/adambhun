@@ -13,6 +13,7 @@ const conn = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
+  multipleStatements: true
   //port: '3000',
 });
 
@@ -55,7 +56,7 @@ app.get('/authors_name', (req, res) => {
 });
 
 app.get('/table', (req, res) => {
-  conn.query('SELECT book_name, book_price FROM book_mast;', (err, rows) => {
+  conn.query('SELECT book_name, book_price FROM book_mast LEFT JOIN category ON book_mast.cate_id=category.cate_id LEFT JOIN author ON book_mast.aut_id=author.aut_id LEFT JOIN publisher ON book_mast.pub_id=publisher.pub_id;', (err, rows) => {
     if (err) {
       console.error(err);
       res.status(500).send();
