@@ -42,27 +42,16 @@ app.get('/book_name', (req, res) => {
   });
 });
 
-// app.post('/newtask', (req, res) => {
-//   let SQL = `INSERT INTO tasks (title, done) VALUES
-//   ('${req.body.title}', ${req.body.done});`;
-
-//   conn.query(SQL, (err, rows) => {
-//       if (err) {
-//         console.error(err);
-//         res.status(500).send();
-//         return;
-//       }
-//     SQL = `SELECT * FROM tasks WHERE id=${rows.insertId};`;
-
-//       conn.query(SQL, (err, rows) => {
-//         if (err) {
-//           console.error(err);
-//           res.status(500).send();
-//           return;
-//         };
-//         res.send(rows);
-//       })
-//     })
+// app.get('/authors_name', (req, res) => {
+//   conn.query('SELECT aut_name FROM author;', (err, rows) => {
+//     if (err) {
+//       console.error(err);
+//       res.status(500).send();
+//       return;
+//     }
+//     res.send(rows);
+//     // console.log(rows);
+//   });
 // });
 
 app.listen(PORT, () => {
