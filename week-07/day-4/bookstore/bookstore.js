@@ -53,8 +53,9 @@ app.get('/authors_name', (req, res) => {
     console.log(rows);
   });
 });
-app.get('/authors_name', (req, res) => {
-  conn.query('SELECT aut_name FROM author;', (err, rows) => {
+
+app.get('/table', (req, res) => {
+  conn.query('SELECT book_name, book_price FROM book_mast;', (err, rows) => {
     if (err) {
       console.error(err);
       res.status(500).send();

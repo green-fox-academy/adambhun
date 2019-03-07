@@ -33,3 +33,14 @@ button2.onclick = () => {
   }
   httpRequest.send();
 }
+
+const gettable = document.querySelector('#get_table');
+gettable.onclick = () => {
+  httpRequest.open('GET', 'http://localhost:3000/table', true);
+  httpRequest.onload = (send) => {
+    console.log(send.target.responseText);
+    
+    payload = JSON.parse(send.target.responseText);
+  }
+  httpRequest.send();
+}
