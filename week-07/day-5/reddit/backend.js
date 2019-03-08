@@ -6,13 +6,13 @@ const app = express();
 const PORT = 3000;
 const mysql = require('mysql');
 const path = require('path');
-app.use("/assets", express.static("assets"));
+app.use("/public", express.static("public"));
 
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  database: process.env.DB_DATABASE
 });
 
 conn.connect((err) => {
@@ -25,42 +25,24 @@ conn.connect((err) => {
 }); 
 // conn.end();
 
-app.get('/hello', (req, res) => {
-  res.sendFile(path.join(__dirname, './assets/bookstore.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/views/index.html'));
 });
 
-app.get('/book_name', (req, res) => {
-  conn.query('SELECT book_name FROM book_mast;', (err, rows) => {
+app.post('/posts', (req, res) => {  
+  let title = req.query.title;
+  let url = req.query.url;
+  let id = req.query.id;
+  console.log(title, url, id);
+  
+  conn.query(`INSERT INTO posts (title, url, id) VALUES ('${title}', '${url}', '${id}');`, (err, rows) => {
     if (err) {
       console.error(err);
       res.status(500).send();
       return;
     }
     res.send(rows);
-    console.log(rows);
-  });
-});
-
-app.get('/authors_name', (req, res) => {
-  conn.query('SELECT aut_name FROM author;', (err, rows) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send();
-      return;
-    }
-    res.send(rows);
-    console.log(rows);
-  });
-});
-
-app.get('/table', (req, res) => {
-  conn.query('SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast LEFT JOIN category ON book_mast.cate_id=category.cate_id LEFT JOIN author ON book_mast.aut_id=author.aut_id LEFT JOIN publisher ON book_mast.pub_id=publisher.pub_id;', (err, rows) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send();
-      return;
-    }
-    res.send(rows);
+    res.status(200).send();
     console.log(rows);
   });
 });
