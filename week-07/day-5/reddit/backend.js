@@ -31,9 +31,9 @@ app.get('/', (req, res) => {
 
 //POST SOMETHING
 app.post('/posts', (req, res) => {  
-  let title = req.query.title;
-  let url = req.query.url;
-  let id = req.query.id;
+  let title = req.body.title;
+  let url = req.body.url;
+  let id = req.body.id;
   console.log(title, url, id);
   
   conn.query(`INSERT INTO posts (title, url, id) VALUES ('${title}', '${url}', '${id}');`, (err, rows) => {
@@ -42,26 +42,26 @@ app.post('/posts', (req, res) => {
       res.status(500).send();
       return;
     }
-    res.send(rows);
-    res.status(200).send();
+    res.status(200).send(rows);
     // console.log(rows);
   });
 });
 
 //SHOW POSTS
 app.get('/posts', (req, res) => {
-  conn.query('SELECT title, url, posted_at, score, vote FROM posts LEFT JOIN relations ON posts.id=relations.p_id LEFT JOIN users ON users.id=relations.u_id;', (err, rows) => {
+  // SELECT title, url, posted_at, score, vote FROM posts LEFT JOIN relations ON posts.id=relations.p_id LEFT JOIN users ON users.id=relations.u_id
+  conn.query('SELECT title, url, posted_at, score, vote FROM posts;', (err, rows) => {
     if (err) {
       console.error(err);
       res.status(500).send();
       return;
     }
-    res.send(rows);
-    res.status(200).send();
+    res.status(200).send(rows);
     console.log(rows);
   });
 });
 
+app.put('/posts/:id/')
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
