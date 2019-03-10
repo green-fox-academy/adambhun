@@ -7,6 +7,7 @@ const PORT = 3000;
 const mysql = require('mysql');
 const path = require('path');
 app.use("/public", express.static("public"));
+app.use(express.json());
 
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -33,10 +34,9 @@ app.get('/', (req, res) => {
 app.post('/posts', (req, res) => {  
   let title = req.body.title;
   let url = req.body.url;
-  let id = req.body.id;
-  console.log(title, url, id);
+  console.log(title, url);
   
-  conn.query(`INSERT INTO posts (title, url, id) VALUES ('${title}', '${url}', '${id}');`, (err, rows) => {
+  conn.query(`INSERT INTO posts (title, url) VALUES ('${title}', '${url}');`, (err, rows) => {
     if (err) {
       console.error(err);
       res.status(500).send();
@@ -57,11 +57,37 @@ app.get('/posts', (req, res) => {
       return;
     }
     res.status(200).send(rows);
+    // console.log(rows);
+  });
+});
+
+//UPVOTE
+app.put('/posts/:id/upvote', (req, res) => {
+  const pId = req.params.id;
+  conn.query(`UPDATE posts SET vote = vote + 1 WHERE id = ${pId};`, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.status(200).send(rows);
     console.log(rows);
   });
 });
 
-app.put('/posts/:id/')
+//DOWNVOTE
+app.put('/posts/:id/downvote', (req, res) => {
+  const pId = req.params.id;
+  conn.query(`UPDATE posts SET vote = vote - 1 WHERE id = ${pId};`, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.status(200).send(rows);
+    console.log(rows);
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
