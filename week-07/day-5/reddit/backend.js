@@ -13,7 +13,8 @@ const conn = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE
+  database: process.env.DB_DATABASE,
+  multipleStatements: true
 });
 
 conn.connect((err) => {
@@ -34,8 +35,6 @@ app.get('/', (req, res) => {
 app.post('/posts', (req, res) => {  
   let title = req.body.title;
   let url = req.body.url;
-  console.log(title, url);
-  
   conn.query(`INSERT INTO posts (title, url) VALUES ('${title}', '${url}');`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -71,7 +70,7 @@ app.put('/posts/:id/upvote', (req, res) => {
       return;
     }
     res.status(200).send(rows);
-    console.log(rows);
+    // console.log(rows);
   });
 });
 
@@ -85,9 +84,11 @@ app.put('/posts/:id/downvote', (req, res) => {
       return;
     }
     res.status(200).send(rows);
-    console.log(rows);
+    // console.log(rows);
   });
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
