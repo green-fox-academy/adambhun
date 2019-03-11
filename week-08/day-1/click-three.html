@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Delay</title>
+</head>
+
+<body>
+  <button>button</button>
+  <p></p>
+  <script>
+    // NOTE: clicks count only after 5 seconds. To count clicks in the first 5 secs, use setinterval(?)
+    let ready = false;
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        ready = true;
+      }, 5000);
+    });
+
+    let counter = 0;
+    const fire = (e) => {
+      counter++;
+      if (ready == true && counter == 3) {
+        document.querySelector('p').innerHTML = '5 seconds elapsed and clicked 3 times';
+      }
+    };
+    document.querySelector('button').addEventListener('click', fire);
+  </script>
+</body>
+
+</html>
