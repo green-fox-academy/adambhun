@@ -1,40 +1,39 @@
 'use strict';
 
-//JUDIT KÓDJA ALAPJÁN
-//JUDIT KÓDJA ALAPJÁN
+//FIXME:ADAMMAN48 KÓDJA
 
-let imgPosition = {
-  x: 0,
-  y: 0
-}
-let imgSize = 100;
-let navBar = document.querySelector('nav');
-let img = document.querySelector('.img-inspector');
-
-navBar.addEventListener('click', (e) => {
-  let dataAction = e.target.dataset.action;
-  let dataDirection = e.target.dataset.direction;
-  
-  if (dataAction === 'zoom') {
-    dataDirection === 'in' ? imgSize *= 1.2 : imgSize /= 1.2;
-    img.setAttribute('style', `background-size: ${imgSize}%`);
-    
-  } else if (dataAction = 'move') {
-
-    if (dataDirection === 'up') {
-      imgPosition.y -= 10;
-    } else if (dataDirection === 'down') {
-      imgPosition.y += 10;
-    } else if (dataDirection === 'right') {
-      imgPosition.x += 10;
-    } else if (dataDirection === 'left') {
-      imgPosition.x -= 10;
-    }
-
-    img.setAttribute('style', `background-position: ${imgPosition.x}px ${imgPosition.y}px;`);
-  }
-
-  (img.getAttribute('style'));
-  
-  // img.getAttribute('style', `background-position: `);)
+/* Here is an image inspector, but the buttons are not implemented yet, that will
+be your task!
+  - the nav buttons (up, down, left, right) move the background by 10px
+  - the zoom buttons increase/decrease the image by 20%
+  - attach only two event listeners to the nav element
+  - one for navigation
+  - one for zooming */
+var navBar = document.querySelector('nav');
+var currentSize = 100;
+var horizontalPos = 0;
+var verticalPos = 0;
+navBar.addEventListener('click', function (event) {
+    var currentAction = event.target.dataset.action;
+    var currentDirection = event.target.dataset.direction;
+    var imgViewer = document.querySelector('.img-inspector');
+    currentAction === 'zoom' && currentDirection === 'in' ?
+        imgViewer.style.backgroundSize = (currentSize /= 0.8) + "%" :
+        currentAction === 'zoom' && currentDirection === 'out' && currentSize > 100 ?
+            imgViewer.style.backgroundSize = (currentSize *= 0.8) + "%" :
+            null;
+});
+navBar.addEventListener('click', function (event) {
+    var currentAction = event.target.dataset.action;
+    var currentDirection = event.target.dataset.direction;
+    var imgViewer = document.querySelector('.img-inspector');
+    currentAction === 'move' && currentDirection === 'up' ?
+        imgViewer.style.backgroundPosition = horizontalPos + "px " + (verticalPos -= 30) + "px" :
+        currentAction === 'move' && currentDirection === 'down' ?
+            imgViewer.style.backgroundPosition = horizontalPos + "px " + (verticalPos += 30) + "px" :
+            currentAction === 'move' && currentDirection === 'left' ?
+                imgViewer.style.backgroundPosition = (horizontalPos -= 30) + "px " + verticalPos + "px" :
+                currentAction === 'move' && currentDirection === 'right' ?
+                    imgViewer.style.backgroundPosition = (horizontalPos += 30) + "px " + verticalPos + "px" :
+                    null;
 });
