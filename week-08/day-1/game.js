@@ -14,9 +14,11 @@ let addC = (e) => {
 document.querySelector('.create-candies').addEventListener('click', addC);
 
 let buy = (e) => {
-  lollipops++;
-  candies = candies - 100;
-  canPerSec++;
+  if (candies >= 100) { 
+    lollipops++;
+    candies = candies - 100;
+    canPerSec++;
+  }
 };
 document.querySelector('.buy-lollipops').addEventListener('click', buy);
 
@@ -28,7 +30,7 @@ document.querySelector('.candy-machine').addEventListener('click', rain);
 //DO EVERY SEC
 
 let asdf = () => {
-  candies = candies + lollipops;
+  candies = candies + canPerSec;
   document.querySelector('.lollipops').textContent ='';  
   for (let index = 0; index < canPerSec; index++) {    
     document.querySelector('.lollipops').textContent +='🍭';  
