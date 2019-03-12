@@ -1,17 +1,15 @@
 'use strict';
 
-//FIXME: HEADERS
-//FIXME: ACCEPT JSON
-
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = 3000;
 const mysql = require('mysql');
 const path = require('path');
+let accepts = require('accepts');
 app.use("/public", express.static("public"));
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -36,8 +34,14 @@ app.get('/', (req, res) => {
 });
 
 //POST SOMETHING
-app.post('/posts', (req, res) => {  
-  
+app.post('/posts', (req, res) => {    
+  res.set('Content-type', 'application/json');
+  let accept = accepts(req);
+  if (accept.type('application/json') === 'application/json') {
+    console.log('success');
+    
+  // console.log( req.accepts('application/json'));
+  // req.get('Content-type') === 'application/json' ?
   //users have to register first, so only known users post
   let title = req.body.title;
   let url = req.body.url;
@@ -52,6 +56,10 @@ app.post('/posts', (req, res) => {
     res.status(200).send(rows);
     // console.log(rows);
   });
+} else {
+  console.log('epic fail');
+  
+}
 });
 
 //SHOW POSTS
@@ -109,6 +117,21 @@ app.delete('/posts/:id', (req, res) => {
   });
 });
 
+//MODIFY POST
+app.delete('/posts/:id', (req, res) => {
+  const id = req.params.id;
+  const title = req.body.title;
+  const url = req.body.url;
+  conn.query(`UPDATE posts SET title = '${title}', url = '${url}' WHERE id='${id}';`, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.status(200).send(rows);
+    // console.log(rows);
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
