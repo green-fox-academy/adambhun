@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <!-- https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css -->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Bttns</title>
+  <link rel="stylesheet" href="./styles.css" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body>
+  <div>
+    <button data-action="delete"><i class="far fa-trash-alt"></i></button>
+    <!-- <button data-action="confirm"><i class="fas fa-check"></i></button> -->
+  </div>
+
+  <script>
+    let icon
+    document.querySelectorAll('button').addEventlistener('click', function (e) {
+      let del = document.createElement('button');
+      
+      e.setAttribute('class', 'hover');
+    });
+  </script>
+</body>

@@ -1,38 +1,48 @@
-* {
-  box-sizing: border-box;
-  background-repeat: no-repeat;
-  position: relative;
-  vertical-align: middle;
-}
+/* LEO KÓDJA */
 
 body {
-  width: 100%;
-  max-width: 100%;
-  margin: auto;
-  display: flexbox;
-  background-color: blue;
+  height: 100vh;
+  display: flex;
+  background: lightseagreen;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 50px;
-  background-color: gray;
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  border-collapse: collapse;
+  font-size: 30px;
+  border-style: hidden;
 }
 
 tr {
-  background-color: gray;
-}
-
-tr:nth-child(even) {
-  background-color: white;
-  border-color: gray;
-}
-
-td {
-  border: none;
-}
+  color: grey;
+  background: whitesmoke;
+  }
 
 th {
-  background-color: black;
-  color: white;
+  background: black;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 20px;
+}
+
+.mainHead {
+  background: black;
+  color: lightgray;
+}
+
+tbody :nth-child(1 ) th{
+  border-bottom: 4px solid gray;
+}
+
+tr:nth-child(odd) {
+  background: white;
 }
