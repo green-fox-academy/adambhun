@@ -1,0 +1,69 @@
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE posts(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(30) NOT NULL,
+  url VARCHAR(127) NOT NULL,
+  posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  score INT NOT NULL,
+  vote INT NOT NULL
+);
+
+CREATE TABLE relations (
+  u_id INT NOT NULL,
+  p_id INT NOT NULL,
+  FOREIGN KEY (u_id) REFERENCES users(id),
+  FOREIGN KEY (p_id) REFERENCES posts(id)
+);
+
+
+
+ALTER TABLE
+  posts
+ALTER COLUMN
+  score
+SET
+  DEFAULT 0;
+
+ALTER TABLE
+  posts
+ALTER COLUMN
+  vote
+SET
+  DEFAULT 0;
+
+
+
+
+
+mysql> DESCRIBE users;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(30) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
++-----------+--------------+------+-----+-------------------+-------------------+
+| Field     | Type         | Null | Key | Default           | Extra             |
++-----------+--------------+------+-----+-------------------+-------------------+
+| id        | int(11)      | NO   | PRI | NULL              | auto_increment    |
+| title     | varchar(30)  | NO   |     | NULL              |                   |
+| url       | varchar(127) | NO   |     | NULL              |                   |
+| posted_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| score     | int(11)      | NO   |     | NULL              |                   |
+| vote      | int(11)      | NO   |     | NULL              |                   |
++-----------+--------------+------+-----+-------------------+-------------------+
+6 rows in set (0.01 sec)
+
+mysql> DESCRIBE relations;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| u_id  | int(11) | NO   | MUL | NULL    |       |
+| p_id  | int(11) | NO   | MUL | NULL    |       |
++-------+---------+------+-----+---------+-------+
+2 rows in set (0.01 sec)

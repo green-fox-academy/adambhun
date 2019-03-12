@@ -1,0 +1,49 @@
+body {
+  background-color: blue;
+}
+
+button {
+  border: none;
+  padding: 10px 40px;
+  border-radius: 5px;
+  color: gray;
+  margin: 10px;
+}
+
+.blue {
+  background-color: blue;
+  box-shadow: 0px 4px rgb(0, 0, 139);
+}
+
+.green {
+  background-color: hsl(130, 100%, 30%);
+  box-shadow: 0px 4px rgb(0, 85, 0);
+}
+
+.red {
+  background-color: red;
+  box-shadow: 0px 4px rgb(175, 0, 0);
+}
+
+.light {
+  background-color: lightseagreen;
+  box-shadow: 0px 4px rgb(15, 94, 90);
+}
+
+.black {
+  background-color: black;
+  box-shadow: 0px 4px black;
+}
+
+.white {
+  background-color: white;
+  box-shadow: 0px 4px lightgray;
+}
+
+button:hover {
+  filter: brightness(110%);
+}
+
+button:active {
+  filter: brightness(90%);
+}

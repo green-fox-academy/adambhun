@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Bttns</title>
+  <link rel="stylesheet" href="./styles.css" type="text/css" />
+</head>
+
+<body>
+  <div>
+    <button class = "blue">Blue</button>
+    <button class = "green">Green</button>
+    <button class = "red">Red</button>
+    <button class = "light">Light</button>
+    <button class = "black">Black</button>
+    <button class = "white">White</button>
+  </div>
+
+  <script>
+    document.querySelectorAll('button').addEventlistener('hover', function (e) {
+      e.setAttribute('class', 'hover');
+    })
+  </script>
+</body>

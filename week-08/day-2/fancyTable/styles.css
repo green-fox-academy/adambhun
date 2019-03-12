@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  position: relative;
+  vertical-align: middle;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: flexbox;
+  background-color: blue;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 50px;
+  background-color: gray;
+}
+
+tr {
+  background-color: gray;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+  border-color: gray;
+}
+
+td {
+  border: none;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
