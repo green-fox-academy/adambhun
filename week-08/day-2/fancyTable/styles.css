@@ -3,7 +3,7 @@
 body {
   height: 100vh;
   display: flex;
-  background: lightseagreen;
+  background: blue;
   align-items: center;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -22,11 +22,6 @@ table {
 tr {
   color: grey;
   background: whitesmoke;
-  }
-
-th {
-  background: black;
-  text-align: left;
 }
 
 th, td {
@@ -34,15 +29,17 @@ th, td {
   padding: 20px;
 }
 
-.mainHead {
+th {
   background: black;
-  color: lightgray;
+  text-align: left;
 }
 
-tbody :nth-child(1 ) th{
+
+tbody :nth-child(1) th {
   border-bottom: 4px solid gray;
 }
 
-tr:nth-child(odd) {
-  background: white;
+tr:nth-child(even) {
+  background-color: gray;
+  color: black;
 }
