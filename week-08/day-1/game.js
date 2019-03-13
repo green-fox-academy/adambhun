@@ -8,8 +8,7 @@ let lolpNum = 0;
 
 let addC = (e) => {
   candies++;
-  console.log(candies, lollipops, canPerSec, lolpNum);
-  
+  console.log(candies, lollipops, canPerSec, lolpNum);  
 };
 document.querySelector('.create-candies').addEventListener('click', addC);
 

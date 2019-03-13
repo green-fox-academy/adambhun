@@ -34,7 +34,8 @@ app.get('/', (req, res) => {
 });
 
 //POST SOMETHING
-app.post('/posts', (req, res) => {    
+app.post('/posts', (req, res) => {
+  req.accepts('application/json');
   res.set('Content-type', 'application/json');
   let accept = accepts(req);
   if (accept.type('application/json') === 'application/json') {
@@ -64,6 +65,7 @@ app.post('/posts', (req, res) => {
 
 //SHOW POSTS
 app.get('/posts', (req, res) => {
+  req.accepts('application/json');
   conn.query('SELECT title, url, posted_at, score, owner FROM posts;', (err, rows) => {
     if (err) {
       console.error(err);
@@ -77,6 +79,7 @@ app.get('/posts', (req, res) => {
 
 //UPVOTE
 app.put('/posts/:id/upvote', (req, res) => {
+  req.accepts('application/json');
   const pId = req.params.id;
   conn.query(`UPDATE posts SET score = score + 1 WHERE id = ${pId};`, (err, rows) => {
     if (err) {
@@ -91,6 +94,7 @@ app.put('/posts/:id/upvote', (req, res) => {
 
 //DOWNVOTE
 app.put('/posts/:id/downvote', (req, res) => {
+  req.accepts('application/json');
   const pId = req.params.id;
   conn.query(`UPDATE posts SET score = score - 1 WHERE id = ${pId};`, (err, rows) => {
     if (err) {
@@ -105,6 +109,7 @@ app.put('/posts/:id/downvote', (req, res) => {
 
 //DELETE
 app.delete('/posts/:id', (req, res) => {
+  req.accepts('application/json');
   const pId = req.params.id;
   conn.query(`DELETE FROM posts WHERE id='${pId}';`, (err, rows) => {
     if (err) {
@@ -119,6 +124,7 @@ app.delete('/posts/:id', (req, res) => {
 
 //MODIFY POST
 app.delete('/posts/:id', (req, res) => {
+  req.accepts('application/json');
   const id = req.params.id;
   const title = req.body.title;
   const url = req.body.url;

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Movie selector</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div>
+    <h1><strong>Movie selector</strong></h1>
+    <form method="POST" action="/send">
+    </form>
+      <select name="genre" id="genre">Select a genre</select>
+      <option value="">Select a genre</option>
+      <select name="movie" id="movie">Select a movie</select>
+      <option value="">Select a movie</option>
+      <option value="asdf">asdf</option>
+      <p>The selected movie is: <%= selected %></p>
+    </div>
+    <script src="frontend.js"></script>
+</body>
+
+</html>
