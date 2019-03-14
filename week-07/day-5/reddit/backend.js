@@ -2,7 +2,6 @@
 //FIXME: error handling
 //FIXME: add users
 //FIXME: session
-//FIXME: breaks
 
 require('dotenv').config();
 const express = require('express');
@@ -45,6 +44,7 @@ app.post('/posts', (req, res) => {
       console.log('header: wrong content type');
     }
   }
+  let user = req.headers.username;
   let title = req.body.title;
   let url = req.body.url;
   let owner = req.body.owner;
@@ -56,8 +56,8 @@ app.post('/posts', (req, res) => {
       return;
     }
     res.set('Content-type', 'application/json');
-    res.status(200).send(rows);
-    console.log(rows);
+    res.status(200).send(rows);  
+    // console.log(rows);
   });
 });
 
@@ -69,6 +69,7 @@ app.get('/posts', (req, res) => {
       console.log('header: wrong content type');
     }
   }
+  let user = req.headers.username;
   conn.query('SELECT title, url, posted_at, score, owner FROM posts;', (err, rows) => {
     if (err) {
       console.error(err);
@@ -89,8 +90,8 @@ app.put('/posts/:id/upvote', (req, res) => {
       console.log('header: wrong content type');
     }
   }
-
-  const pId = req.params.id;
+  let user = req.headers.username;
+  let pId = req.params.id;
   conn.query(`UPDATE posts SET score = score + 1 WHERE id = ${pId};`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -111,7 +112,8 @@ app.put('/posts/:id/downvote', (req, res) => {
       console.log('header: wrong content type');
     }
   }
-  const pId = req.params.id;
+  let user = req.headers.username;
+  let pId = req.params.id;
   conn.query(`UPDATE posts SET score = score - 1 WHERE id = ${pId};`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -132,7 +134,8 @@ app.delete('/posts/:id', (req, res) => {
       console.log('header: wrong content type');
     }
   }
-  const pId = req.params.id;
+  let user = req.headers.username;
+  let pId = req.params.id;
   conn.query(`DELETE FROM posts WHERE id='${pId}';`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -153,10 +156,10 @@ app.delete('/posts/:id', (req, res) => {
       console.log('header: wrong content type');
     }
   }
-
-  const id = req.params.id;
-  const title = req.body.title;
-  const url = req.body.url;
+  let user = req.headers.username;
+  let id = req.params.id;
+  let title = req.body.title;
+  let url = req.body.url;
   conn.query(`UPDATE posts SET title = '${title}', url = '${url}' WHERE id='${id}';`, (err, rows) => {
     if (err) {
       console.error(err);
