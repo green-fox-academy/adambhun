@@ -1,5 +1,4 @@
 'use strict';
-//FIXME: error handling
 //FIXME: add users
 //FIXME: session
 
@@ -33,7 +32,20 @@ conn.connect((err) => {
 // conn.end();
 //HOME
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/views/index.html'));
+  res.sendFile(path.join(__dirname, './public/views/home.html'));
+  res.status(200);
+});
+
+//REGISTER
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/views/register.html'));
+  res.status(200);
+});
+
+//REGISTER
+app.get('/fillpost', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/views/fillpost.html'));
+  res.status(200);
 });
 
 //POST SOMETHING
@@ -44,11 +56,10 @@ app.post('/posts', (req, res) => {
       console.log('header: wrong content type');
     }
   }
-  let user = req.headers.username;
   let title = req.body.title;
   let url = req.body.url;
-  let owner = req.body.owner;
-  let owner_id = req.body.owner_id;
+  let owner = req.headers.username || 'Lajos';
+  let owner_id = req.body.owner_id || '1';
   conn.query(`INSERT INTO posts (title, url, owner, owner_id) VALUES ('${title}', '${url}', '${owner}', '${owner_id}');`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -171,6 +182,8 @@ app.delete('/posts/:id', (req, res) => {
     // console.log(rows);
   });
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);

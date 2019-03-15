@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reddit reg/login</title>
+  <link rel="stylesheet" href="./public/assets/css/register.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1>What will you post?</h1>
+  <div id="container">
+  <div id="register">
+      <h1>Post contents</h1>
+      <form class="form-container" method="POST" action="/posts">
+        <label for="TITLE">TITLE</label>
+        <input type="text" name="title" value="TITLE" autofocus required />
+        <label for="URL">URL</label>
+        <input type="text" name="url" value="URL" autofocus required />
+        <button type="submit">SUBMIT POST</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

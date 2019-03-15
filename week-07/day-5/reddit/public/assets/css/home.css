@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+* {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  display: flex;
+  background-repeat: no-repeat;
+  background-image: url("/public/assets/images/stars.jpg");
+  background-size: cover;
+  padding: 36pt 0pt;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: white;
+  font-size: 36pt;
+  font-weight: 300;
+  letter-spacing: 60pt;
+  font-weight: lighter;
+}
+
+main {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100vw;
+  margin: 1%;
+}
+
+#posts {
+  width: 66%;
+  background-color: darkblue;
+  margin-right: 1%;
+  padding: 0.5em;
+}
+
+#right {
+  width: 30%;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+#right > * {
+  margin-bottom: 1vw;
+}
+
+.button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: white;
+  padding: 1em 0.5em;
+  background-color: lightseagreen;
+}
+
+#ABOUT {
+  background-color: gray;
+  padding: 0.5em;
+  width: 100%;
+}
+
+li {
+  padding-left: 2em;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    flex-direction: column;
+    width: 100%;
+  }
+  #posts {
+    width: 100%;
+    margin: 1%;
+  }
+}

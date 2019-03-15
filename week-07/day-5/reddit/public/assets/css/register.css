@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+#container {
+  padding: 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: darkslategrey;
+}
+
+#register, #log_in {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 25px 50px;
+  border: 1px white;
+}
+
+.form-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+/* .field-icon {
+  position: relative;
+  /* left: 16.7em;
+  top: 17.8em; */
+/* } */ 

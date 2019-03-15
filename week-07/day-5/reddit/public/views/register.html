@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reddit reg/login</title>
+  <!-- <link rel="stylesheet" href="./public/assets/css/register.css" /> -->
+  <link rel="stylesheet" href="./public/assets/css/register.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1>Register or Log in</h1>
+  <div id="container">
+  <div id="register">
+      <h1>Register</h1>
+      <form class="form-container" method="POST" action="/send">
+        <label for="USERNAME">USERNAME</label>
+        <input type="text" name="USERNAME" value="USERNAME" autofocus required />
+        <label for="PASSWORD">PASSWORD</label>
+        <input type="password" name="PASSWORD" value="asdf" required />
+        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+        <label for="PASSWORD AGAIN">PASSWORD AGAIN</label>
+        <input type="password" name="PASSWORD" value="asdf" required />
+        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+        <button type="submit">Register</button>
+      </div>
+    </form>
+
+  <div id="log_in">
+      <h1>Log in</h1>
+      <form class="form-container" method="POST" action="/send">
+        <label for="USERNAME">USERNAME</label>
+        <input type="text" name="USERNAME" value="USERNAME" autofocus required />
+        <label for="PASSWORD">PASSWORD</label>
+        <div><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span></div>
+        <input type="password" name="PASSWORD" value="asdf" required />
+        <button type="submit">Log in</button>
+        <p>Forgot Password?</p>
+      </div>
+    </form>
+  </div>
+  <script src="./public/assets/js/register.js"></script>
+</body>
+
+</html>
