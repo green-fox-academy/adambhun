@@ -1,6 +1,7 @@
 'use strict';
-//FIXME: add users
+//FIXME: password
 //FIXME: session
+//FIXME: more redirects
 
 require('dotenv').config();
 const express = require('express');
@@ -8,10 +9,15 @@ const app = express();
 const PORT = 3000;
 const mysql = require('mysql');
 const path = require('path');
-let accepts = require('accepts');
+const session = require('express-session');
 app.use("/public", express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'asdf',
+  resave: false,
+  saveUninitialized: false
+}));
 
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -29,20 +35,20 @@ conn.connect((err) => {
   }
   console.log('DB is connected');
 });
-// conn.end();
+
 //HOME
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/views/home.html'));
   res.status(200);
 });
 
-//REGISTER
+//REGISTER / LOG IN
 app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, './public/views/register.html'));
   res.status(200);
 });
 
-//REGISTER
+//FILLPOST
 app.get('/fillpost', (req, res) => {
   res.sendFile(path.join(__dirname, './public/views/fillpost.html'));
   res.status(200);
@@ -183,6 +189,26 @@ app.delete('/posts/:id', (req, res) => {
   });
 });
 
+//REGISTER
+app.post('/register', (req, res) => {
+  if (req.accepts('application/json') === false) {
+    console.log('wrong request header');
+    if (req.is('application/json') !== 'application/json') {
+      console.log('header: wrong content type');
+    }
+  }
+  let username = req.body.username;
+  conn.query(`INSERT INTO users (name) VALUES ('${username}');`, (err, rows) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
+    res.set('Content-type', 'application/json');
+    // res.status(200).end();
+    res.redirect('/');
+  });
+});
 
 
 app.listen(PORT, () => {
