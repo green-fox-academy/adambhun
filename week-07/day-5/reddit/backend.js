@@ -1,6 +1,6 @@
 'use strict';
 //FIXME: password
-//FIXME: session
+//FIXME: session  https://www.youtube.com/watch?v=hE5zeEiVqpw
 //FIXME: more redirects
 
 require('dotenv').config();
