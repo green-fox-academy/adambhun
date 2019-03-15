@@ -67,8 +67,8 @@ app.post('/posts', (req, res) => {
       return;
     }
     res.set('Content-type', 'application/json');
-    res.status(200).send(rows);  
-    // console.log(rows);
+    // res.status(200).end();
+    res.redirect('/');
   });
 });
 
