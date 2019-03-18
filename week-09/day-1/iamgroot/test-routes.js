@@ -2,10 +2,6 @@ const test = require("tape");
 const request = require("supertest");
 const app = require("./routes");
 
-//var isValidOrg = function(res) {
-// res.body.should.have.property("received", "translated");
-//};
-
 test("w/ msg", t => {
   request(app)
     .get("/groot?message=something")
