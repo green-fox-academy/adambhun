@@ -1,0 +1,20 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  display: grid;
+  width: 95vw;
+  height: 45px;
+  grid-template-columns: 0.8fr 1.6fr 0.8fr;
+  grid-column-gap: 5px;
+  margin: 10px;
+}
+
+.container > div {
+  display: grid;
+  height: 100%;
+  background-color: red;
+  padding: 5px;
+}
