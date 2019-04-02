@@ -1,0 +1,36 @@
+pcitures
+
+defini
+
+domain specific lang
+
+
+use
+
+create, read, update, delete
+injection
+SQL injection usually occurs when you ask a user for input, like their username/userid, and instead of a name/id, the user gives you an SQL statement that you will unknowingly run on your database.
+
+sleep
+
+txtUserId = getRequestString("UserId");
+txtSQL = "SELECT * FROM Users WHERE UserId = " + txtUserId;
+
+SELECT UserId, Name, Password FROM Users WHERE UserId = 105 or 1=1; 
+
+
+protection: parameters
+SQL parameters are values that are added to an SQL query at execution time, in a controlled manner.
+The SQL engine checks each parameter to ensure that it is correct for its column and are treated literally, and not as part of the SQL to be executed.
+
+txtNam = getRequestString("CustomerName");
+txtAdd = getRequestString("Address");
+txtCit = getRequestString("City");
+txtSQL = "INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)";
+db.Execute(txtSQL,txtNam,txtAdd,txtCit);
+
+
+
+
+alter, future
+no writing, use sql as protocol, frontends

@@ -1,0 +1,32 @@
+foreword
+word obfu
+not encryption no enc process
+protect intellectual property make it hard to read for humans, to counter reverse engineering
+extra protection(hide vulnerablilities)
+hide malicious code
+
+how
+
+same output different method
+obfuscated names, no whitespaces, split strings
+deadcode injection (use live pieces to confuse)
+
+deobfusc
+static code analyser (google closure compiler) - remove dead code, x = 5; y=6-x/2
+dynam code anlss
+
+caveats
+less efficietn
+size
+viruses use obfuscation
+
+example:
+hello world
+float array -> binary > string
+http://www.jsfuck.com/
+https://obfuscator.io/
+software (proguard)
+proguard - rename, minify, efficient
+
+
+qr codes

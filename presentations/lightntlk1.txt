@@ -1,0 +1,49 @@
+why chose 
+like seeing the big picture
+facilitate big project
+
+what this is
+-collectin of best practices, reusable solutions for oo langs
+functional languages (scala) don't need 
+-big pic, abstract
+
+uses
+counter subtle issues that may not be detected in small scale
+uniform approach
+
+Classification
+-creational
+
+-structural
+
+-behavioral
+
+-concurrency
+multi-thread, time, nuclear computing
+
+-big ball of mud
+
+EXAMPLE
+Structure
+-intent
+-motivation
+-structure
+-example
+
+Singleton
+-one class one instance
+prob:
+-(shared res)
+-access obj frm anywhr but prot it from overwrit
+
+Solution
+All implementations of the Singleton have these two steps in common:
+
+Make the default constructor private, to prevent other objects from using the new operator with the Singleton class.
+Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
+If your code has access to the Singleton class, then it’s able to call the Singleton’s static method. So whenever that method is called, the same object is always returned.
+
+
+Criticism
+may get unduly complex
+make up for missing language features

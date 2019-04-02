@@ -1,0 +1,40 @@
+why i chose this topic
+-not know why use exceptions
+error-exception difference
+
+errors
+
+-what is error - unexpected -> malfunction
+TPYES
+-detection
+compile
+runtime
+-how cause probs
+syntax
+semantic improper syntax(wrong side of expr, same names)
+logical (makes no sense to humans) - div by 0
+
+exceptions
+
+why use them?
+-exc error diff - break flow of program
+-not within the (business)logic of the program
+-obj - info - pass to runtime
+
+-uniform way of handling errors (sy else's code)
+-performance (server down)
+-let the code know that sg unexpected happened (red flag)
+-flow
+
+exc types
+-all are objects
+-checked, compile time
+-unchecked, runtime
+
+
+terms
+try-encaps
+catch-block
+throw-generate, describe
+finally-always run
+
