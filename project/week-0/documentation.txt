@@ -1,0 +1,32 @@
+documentation
+
+user adam added to docker group
+
+commands:
+//create img (t- - name) - note the dot
+docker build -t w0project:latest .
+
+//create container (-it - w/ interactive terminal) (-d - daemon mode) (-p - ports host:container)
+docker run -it -d -p 9002:9005 w0project:latest
+
+----------------------------------------------------------------------------
+Dockerfile
+//download apline
+FROM alpine:latest
+//apk is what apt-get is in mint. --no-cache option saves disk space
+RUN apk add --no-cache nodejs npm
+
+//create directory in container
+WORKDIR /app
+COPY . /app
+
+RUN npm install
+
+EXPOSE 9005
+
+//this first command makes the img executable
+ENTRYPOINT ["node"]
+
+//argument to command "node"
+CMD ["hello.js"]
+----------------------------------------------------------------------------
