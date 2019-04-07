@@ -1,0 +1,45 @@
+documentation
+
+commands:
+//create img (t- - name) - note the dot
+docker build -t second:latest .
+
+//create container (-it - w/ interactive terminal) (-d - daemon mode) (-p - ports host:container)
+docker run -it -d -p 9005:9005 second:latest
+
+----------------------------------------------------------------------------
+Dockerfile
+//download apline
+FROM alpine:latest
+//apk is what apt-get is in mint. --no-cache option saves disk space
+RUN apk add --no-cache nodejs npm
+
+//create directory in container
+WORKDIR /app
+COPY . /app
+
+RUN npm install
+
+EXPOSE 9005
+
+//this first command makes the img executable
+ENTRYPOINT ["node"]
+
+//argument to command "node"
+CMD ["server.js"]
+----------------------------------------------------------------------------
+
+amazon db
+
+username: adam
+
+password: 
+asdf1234
+
+id
+aa16l0bn8sotdjc
+
+Endpoint
+aa16l0bn8sotdjc.cpl7vqmwydap.us-east-2.rds.amazonaws.com
+Port
+3306

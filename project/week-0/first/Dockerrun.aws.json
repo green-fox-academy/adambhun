@@ -1,0 +1,11 @@
+{     
+  "AWSEBDockerrunVersion": "1",          
+  "Image":{       
+    "Name": "adam/w0project"     
+  },     
+    "Ports": [       {         
+      "ContainerPort": "9002",
+      "hostPort": "9005"
+    }     
+  ]   
+}
