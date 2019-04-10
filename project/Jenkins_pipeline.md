@@ -2,11 +2,13 @@
 
 ## Webhooks
 
-Webhooks can be installed on repositories or organizations. They trigger on specific events - pull request in our case, - sending a HTTP POST payload to a specified URL, triggering another event elsewhere.
+Webhooks can be installed on repositories or organizations. They trigger on specific events - pull requests in our case, - sending a HTTP POST payload to a specified URL, triggering another event elsewhere.
 
 ### Creating webhooks
 
-TBA
+To set up a webhook, go to the settings page of your repository or organization. From there, click Webhooks, then Add webhook.
+
+<img src="assets/settings.png">
 
 ## Installing Jenkins - on Linux Mint (optional; Jenkins can be run in a container, or Húli's instance may as well be used)
 ```
@@ -30,3 +32,15 @@ Now you will have to login for the first time with your admin credentials. Enter
 Jenkins will walk you through the configuration process.
 
 ## Creating the job
+
+`Note: the GitHub Pull Request builder plugin can help with this task. Since it is installed on GFA's Jenkins server, it will be used in this guide as well.`
+gh auth
+gh integration
+
+
+
+After loggin in to Jenkins click on `New item`. Name your job, then choose `Freestyle project` and click on `OK`.
+
+Under the `General` tab choose `Github project` and enter your repo's URL.
+
+Under the `Hubot` tab tick `This project is parameterized`. For the `Credential type` select `Username with password` and enter your 
