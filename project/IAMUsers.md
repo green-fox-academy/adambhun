@@ -29,6 +29,7 @@ Click on `Users` then on `Add user`.
 On the next page set a username.
 Tick `Programmatic access`.
 Click `Next`.
+
 Choose `Attach existing policies directly`
 Type `s3` in the `searchbox`.
 Select `AmayonS3FullAccess`.
@@ -40,7 +41,7 @@ Type `ec2` in the `searchbox`.
 Select `AmazonEC2ContainerRegistryFullAccess`.
 
 Type `rds` in the `searchbox`.
-Select `AmazonRDSDataFullAccess`.
+Select `AmazonRDSFullAccess`.
 Click `Next`.
 
 Adding tags is optional. Click `Next`.
