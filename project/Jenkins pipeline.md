@@ -23,7 +23,7 @@ Jenkins will walk you through the configuration process.
 
 ## Creating the job
 
-After loggin in to Jenkins click on `New item`. Name your job, then choose `Freestyle project` and click on `OK`.
+After login in to Jenkins click on `New item`. Name your job, then choose `Freestyle project` and click on `OK`.
 
 Under the `General` tab choose `Github project` and enter your repo's URL.
 
