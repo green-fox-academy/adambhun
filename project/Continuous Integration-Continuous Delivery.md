@@ -57,6 +57,8 @@ ENTRYPOINT ["node"]
 CMD ["hello.js"]
 ```
 
+Explanation: I included a simple express server js application to prevent the Docker container from crashing.
+
 ### Dockerrun.aws.json contents
 ```
 {     
@@ -128,6 +130,25 @@ pipeline {
 }
 ```
 
+Explanation: 
+- setting the environment variables
+    - registry is your Dockerhub repository
+    - dockerCred is your Docker credentials stored in Jenkins
+- Testing
+    - set up dependencies
+    - run tests
+- Building image
+    - specify an image name after 'docker.build'
+- Deploy Image
+    - wrap the shell script that pushes the images as above, so Jenkins is authorized
+- Deploy to EB
+    - wrap the shell script that deploys to EB as above, so Jenkins is authorized
+    - install ebcli and its dependencies
+    - cre
+- Cleanup
+    - clear the docker images and dependencies so they don't take up storage space on your server
+
+
 ## Testing the Jenkins project
 
 Find your Jenkins project on the home page of your Jenkins server and click on it.
@@ -136,4 +157,6 @@ Find your Jenkins project on the home page of your Jenkins server and click on i
 
 Click on `Scan Repository Now` to begin the test. It can take up to five minutes with a simple application.
 
-To see a detailed log of what happened, 
+To see a detailed log of what happened, click on the `Build History`, and click on the `console output` icon on the right of the field of your latest build.
+
+<img src="assets/testci2.png">

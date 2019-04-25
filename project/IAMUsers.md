@@ -38,7 +38,7 @@ Type `elasticbeans` in the `searchbox`.
 Select `AWSElasticBeanstalkFullAccess`.
 
 Type `ec2` in the `searchbox`.
-Select `AmazonEC2ContainerRegistryFullAccess`.
+Select `AmazonEC2ContainerServiceFullAccess`.
 
 Type `rds` in the `searchbox`.
 Select `AmazonRDSFullAccess`.
