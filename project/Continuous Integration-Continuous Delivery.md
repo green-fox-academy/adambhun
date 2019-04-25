@@ -78,7 +78,7 @@ CMD ["anagram.js"]
 pipeline {
   environment {
     registry = "adambhun/multibranch-ci-cd"
-    registryCredential = 'adambdhub'
+    dockerCred = 'adambdhub'
     dockerImage = ''
   }
   agent any
@@ -97,26 +97,23 @@ pipeline {
         }
       }
     }
-    stage('Deploy to Docker') {
+    stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+          docker.withRegistry( '', dockerCred ) {
+            sh 'docker push adambhun/multibranch-ci-cd:latest'
           }
         }
       }
     }
     stage('Deploy to EB') {
       steps{
-        script {
-          sh 'python --version'
-          sh 'apt-get install python-pip'
-          sh 'pip --version'
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'adam_dev_aws', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
           sh 'pip install awsebcli --upgrade --user'
-          sh 'eb --version'
-          sh 'ls'
-          sh 'eb init -p docker $BUILD_NUMBER'
-          sh 'eb create $BUILD_NUMBER'
+          sh 'eb init --region eu-central-1 -p docker $BUILD_NUMBER'
+          sh 'eb create CD-no-$BUILD_NUMBER'
+          sh 'eb use CD-no-$BUILD_NUMBER'
+          sh 'eb deploy'
         }
       }
     }
