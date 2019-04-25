@@ -54,7 +54,7 @@ COPY . /app
 RUN npm install
 EXPOSE 3000
 ENTRYPOINT ["node"]
-CMD ["anagram.js"]
+CMD ["hello.js"]
 ```
 
 ### Dockerrun.aws.json contents
@@ -86,7 +86,7 @@ pipeline {
     stage('Testing') {
       steps {
         sh 'npm init -y'
-        sh 'npm install tape'
+        sh 'npm install'
         sh 'node anagramtest.js'
       }
     }

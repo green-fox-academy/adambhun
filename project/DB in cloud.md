@@ -1,16 +1,20 @@
 # Prerequisites
 
-[The AWS documentation](https://aws.amazon.com/getting-started/tutorials/set-up-command-line-elastic-beanstalk/) will walk you through the process of installing EBCLI on your system.
+AWS account
 
-AWS Elastic Beanstalk can launch single container Docker environments by building an image described in a Dockerfile or pulling a remote Docker image. If you're deploying a remote Docker image, you don't need to include a Dockerfile. Instead, use a Dockerrun.aws.json file, which specifies an image to use and additional configuration options.
+## Creating the DB
 
-A Dockerrun.aws.json file will be used here.
+Sign in to AWS management console.
 
+Click on `services`. Click on `RDS` under `Database`.
 
-# Deploying
+<img src="assets/createEC2.png">
 
-Open the folder that contains your application in terminal.
-Create an image by entering the command `docker build -t 'docker-username''image-name':'version' .` Note the . at the end!!!
-Before pushing your image, you might need to run `docker login`.
-Push your image with the command `docker push 'docker-username''image-name':'version'`
-This may take a few minutes.
+On the next page click either of the orange `Create database` buttons.
+
+<img src="assets/rdshome.png">
+
+Select `MySQL` engine then click on `Next`.
+
+<img src="assets/mysql.png">
+
