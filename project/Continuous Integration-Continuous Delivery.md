@@ -7,7 +7,27 @@
 - AWS account
 - Docker account
 - Jenkins server set up (credentials for Dockerhub and AWS)
-- Multibranch gitHub repository
+- Multibranch gitHub repository with a webhook
+- An elastic beanstalk application
+
+### Creating the webhook
+
+To set up a webhook, go to the settings page of your repository or organization. From there, click Webhooks, then Add webhook.
+
+<img src="assets/settings.png">
+
+The payload URL should look like this: `http://195.228.147.126:9090/ghprbhook/`
+
+`The IP address of your Jenkins server + the number of the port Jenkins listens on + /ghprbhook/`
+
+The rest of the setting can be left on their default values.
+
+### Credentials on Jenkins
+
+On the home page of Jenkins, click on `Credentials` on the left.
+Select `System` from the drop-down menu.
+On the next page click on `Global credentials`.
+The `Add Credentials` button will appear on the top left. Click on it, and then you can start adding your credentials.
 
 ## Creating the Jenkins job
 
@@ -41,6 +61,7 @@ You can leave the rest of the settings on their default values. Click on `Save`.
 ## Repo contents
 
 The gitHub repository should contain the following files at least:
+
 - Nodejs application
 - test for the application
 - Dockerfile
@@ -48,6 +69,7 @@ The gitHub repository should contain the following files at least:
 - Dockerrun.aws.json file
 
 ### Dockerfile contents
+
 ```
 FROM alpine:latest
 RUN apk add --no-cache nodejs npm
@@ -62,17 +84,18 @@ CMD ["hello.js"]
 Explanation: I included a simple express server js application to prevent the Docker container from crashing.
 
 ### Dockerrun.aws.json contents
+
 ```
-{     
-  "AWSEBDockerrunVersion": "1",          
-  "Image":{       
-    "Name": "adambhun/CD_CI"     
-  },     
-    "Ports": [       {         
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image":{
+    "Name": "adambhun/CD_CI"
+  },
+    "Ports": [       {
       "ContainerPort": "3000",
       "hostPort": "3000"
-    }     
-  ]   
+    }
+  ]
 }
 ```
 
@@ -111,13 +134,13 @@ pipeline {
       }
     }
     stage('Deploy to EB') {
+      when {
+        branch 'master'
+      }
       steps{
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'adam_dev_aws', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
           sh 'pip install awsebcli --upgrade --user'
-          sh 'eb init --region eu-central-1 -p docker $BUILD_NUMBER'
-          sh 'eb create CD-no-$BUILD_NUMBER'
-          sh 'eb use CD-no-$BUILD_NUMBER'
-          sh 'eb deploy'
+          sh 'eb deploy green --version app-c5f1-190425_140158'
         }
       }
     }
@@ -132,23 +155,30 @@ pipeline {
 }
 ```
 
-Explanation: 
+Explanation:
+
 - setting the environment variables
-    - registry is your Dockerhub repository
-    - dockerCred is your Docker credentials stored in Jenkins
+  - registry is your Dockerhub repository
+  - dockerCred is your Docker credentials stored in Jenkins
 - Testing
-    - set up dependencies
-    - run tests
+  - set up dependencies
+  - run tests
 - Building image
-    - specify an image name after 'docker.build'
+  - specify an image name after 'docker.build'
 - Deploy Image
-    - wrap the shell script that pushes the images as above, so Jenkins is authorized
+  - wrap the shell script that pushes the images as above, so Jenkins is authorized
 - Deploy to EB
-    - wrap the shell script that deploys to EB as above, so Jenkins is authorized
+  - wrap the shell script that deploys to EB as above, so Jenkins is authorized
+    Shell script explanation:
     - install ebcli and its dependencies
-    - cre
+    - to update an existing application, give the command `eb deploy [your environment name] --version [your application's version]`
+    - to create an EB application and an environment, the command should look like this:
+    ```
+     sh 'eb init --region [region of your choice] -p docker [container name]'
+     sh 'eb create CD-no-$BUILD_NUMBER'
+     ```
 - Cleanup
-    - clear the docker images and dependencies so they don't take up storage space on your server
+  - clear the docker images and dependencies so they don't take up storage space on your server
 
 
 ## Testing the Jenkins project
