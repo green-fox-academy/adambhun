@@ -9,7 +9,7 @@ services:
         environment:
             MYSQL_USER: adam
             MYSQL_ROOT_PASSWORD: password
-            MYSQL_DATABASE: database
+            MYSQL_DATABASE: asdf
         network_mode: "host"
 
     server:
