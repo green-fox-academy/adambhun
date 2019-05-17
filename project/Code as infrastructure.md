@@ -85,10 +85,13 @@ In order to make my code transparent and reusable, I divided them to three diffe
 # Running the script
 
 To test the script and see what id would do, run the terraform plan command. Eg.:
+
 `terraform plan -var-file="terraform.tfvars"`
 
 To run the script give this command:
+
 `terraform apply -var-file="terraform.tfvars"`
 
 The terraform destroy command undoes everything the terraform apply command does. Eg.:
+
 `terraform destroy -var-file="terraform.tfvars"`
