@@ -42,13 +42,16 @@ const conn = mysql.createConnection({
 
 // handleDisconnect();
 
-conn.connect((err) => {
-  if (err) {
-    console.error('Database connection failed: ' + err.stack);
-    return;
-  }
-  console.log('DB is connected');
-});
+setTimeout(() => {
+  conn.connect((err) => {
+    if (err) {
+      console.error('Database connection failed: ' + err.stack);
+      return;
+    }
+    console.log('DB is connected');
+  });  
+}, 35000);
+
 
 
 //HOME

@@ -3,21 +3,18 @@ version: "3"
 services:
     database:
         build: database/
-        ports:
-            - "33060:33060"
+        
+        # ports:
+        #     - "9005:3306"
         environment:
             MYSQL_USER: adam
             MYSQL_ROOT_PASSWORD: password
             MYSQL_DATABASE: database
-        healthcheck:
-            test: ["CMD", "adam" ,"ping", "-h", "localhost"]
-            timeout: 20s
-            retries: 10
+        network_mode: "host"
 
     server:
         build: ./
         depends_on:
-            database:
-                condition: service_healthy
+            - database
         ports:
             - "9006:9006"
