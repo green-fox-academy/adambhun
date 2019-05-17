@@ -29,6 +29,7 @@ In order to make my code transparent and reusable, I divided them to three diffe
  In order to ues this file, append `-var-file="terraform.tfvars"` to the terraform command you want to use.
  Note: there are other ways to declare and use variables, but they are not used in this process.
  To use variables - in the other files - they should be referenced in using the following format:
+ 
  `key = "${var.variable_name}"`
 
  - instances.tf
@@ -74,6 +75,7 @@ In order to make my code transparent and reusable, I divided them to three diffe
  `security_groups` is the array of AWS security groups the instance subscribes to.
  
  The connection block defines how an IAM user can connect to the instance. The standard user for an EC2 instance is "ec2-user", so root won't work. Refer to the `.pem` file you got when creating your EC2 key pair with this line:
+
  `private_key = "${file("./mal-ops-adm.pem")}"`
 
  The provisioner blocks let you execute commands on your instance.
