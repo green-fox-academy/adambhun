@@ -1,3 +1,6 @@
+[Repo for this story](https://github.com/green-fox-academy/adambhun/tree/master/project/securingEC2)
+
+
 # Accessing the instance
 
 Use ssh to log into the instance. You might need an ssh client, like putty on Windows.
