@@ -74,7 +74,7 @@ In order to make my code transparent and reusable, I divided them to three diffe
  `key_name` is the name of your EC2 key pair.
  `security_groups` is the array of AWS security groups the instance subscribes to.
  
- The connection block defines how an IAM user can connect to the instance. The standard user for an EC2 instance is "ec2-user", so root won't work. Refer to the `.pem` file you got when creating your EC2 key pair with this line:
+ The connection block defines how a user can connect to the instance. The standard user for an EC2 instance is "ec2-user", so root won't work. Refer to the `.pem` file you got when creating your EC2 key pair with this line:
 
  `private_key = "${file("./mal-ops-adm.pem")}"`
 

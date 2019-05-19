@@ -38,9 +38,6 @@ resource "aws_instance" "Dev" {
   ]
 
     tags {
-    Name = "mal-ops-adam-staging"
-  }
-    tags {
     Name = "mal-ops-adam-dev"
   }
 
@@ -72,9 +69,6 @@ resource "aws_instance" "Production" {
     "${aws_security_group.ec2-allow-all.name}"
   ]
 
-    tags {
-    Name = "mal-ops-adam-staging"
-  }
       tags {
     Name = "mal-ops-adam-production"
   }
