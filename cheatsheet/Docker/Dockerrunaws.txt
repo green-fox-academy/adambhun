@@ -1,0 +1,11 @@
+{     
+  "AWSEBDockerrunVersion": "1",          
+  "Image":{       
+    "Name": "adam/w0project"        ←_docker_repository     
+  },     
+    "Ports": [       {         
+      "ContainerPort": "9002",            ←_docker_image_port
+      "hostPort": "9005"                ←_port_to_reach_on
+    }     
+  ]   
+}

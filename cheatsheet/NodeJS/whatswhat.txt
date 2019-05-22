@@ -1,0 +1,5 @@
+library - collection of functions
+framework - libraries + app control flow(framework calls me)
+
+nodemon refreshes the server
+

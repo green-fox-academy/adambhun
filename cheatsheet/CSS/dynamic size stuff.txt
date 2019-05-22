@@ -1,0 +1,5 @@
+grow shrink: rate at which it g\s when windows size changes
+
+wrap: element goes to next row when window shrinks
+
+basis: initial size

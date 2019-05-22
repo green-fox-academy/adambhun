@@ -1,0 +1,11 @@
+
+Composition:
+Interfaces define mandatory fileds, functions for classes.
+A new class 'implements' an interface.
+
+Inheritence:
+Abstract classes define mandatory fields, functions for child classes.
+A new class 'extends' a parent class.
+
+
+*

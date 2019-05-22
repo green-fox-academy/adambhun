@@ -1,0 +1,6 @@
+ feedbackNumbersByStudents.forEach((oneFeedback: number[]): void => {
+    feedbackResult.matReview.push(oneFeedback[0]);
+    feedbackResult.presSkills.push(oneFeedback[1]);
+    feedbackResult.helpfulness.push(oneFeedback[2]);
+    feedbackResult.explanations.push(oneFeedback[3]);
+  });

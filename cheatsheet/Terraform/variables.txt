@@ -1,0 +1,42 @@
+https://www.terraform.io/docs/configuration/variables.html
+
+//fist way - .tf
+variables.tf
+
+variable "access_key" {}
+variable "secret_key" {}
+variable "region" {
+  default = "eu-central-1"
+}
+
+
+
+//second - .tfvars
+// use with command like:
+terraform apply -var-file="testing.tfvars"
+terraform.tfvars
+
+image_id = "ami-abc123"
+availability_zone_names = [
+  "us-east-1a",
+  "us-west-1c",
+]
+
+
+//third - .tfvars.json
+{
+  "image_id": "ami-abc123",
+  "availability_zone_names": ["us-west-1a", "us-west-1c"]
+}
+
+
+//fourth - commands
+//variables are accepted by:
+apply, plan, refresh
+//eg.:
+$ terraform apply \
+  -var 'access_key=foo' \
+  -var 'secret_key=bar'
+
+
+

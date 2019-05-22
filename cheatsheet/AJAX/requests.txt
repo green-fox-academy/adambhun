@@ -1,0 +1,17 @@
+window.onload = function(){
+
+  http.onreadystatechange = function() {
+	if(http.readyState == 4 && http.status == 200) {
+   }
+};
+
+
+let http = new XMLHttpRequest();
+http.open("GET", 'http://localhost:8080/booklistAPI',
+true );
+http.send();
+http.onload = (e) => {
+let data = JSON.parse(http.responseText);
+console.log('data on readystate', data);
+createIt(data); //DO SOMETHING WITH THE DATA
+}

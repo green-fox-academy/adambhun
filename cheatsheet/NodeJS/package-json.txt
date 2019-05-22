@@ -1,0 +1,3 @@
+package.json
+-defines dependencies for our webapp (npm install xxxxx -save)
+-npm install automatically installs dependencies

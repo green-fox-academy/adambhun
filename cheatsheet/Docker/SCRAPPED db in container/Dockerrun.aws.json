@@ -1,0 +1,11 @@
+{     
+  "AWSEBDockerrunVersion": "1",          
+  "Image":{       
+    "Name": "adam/database"     
+  },     
+    "Ports": [       {         
+      "ContainerPort": "3306",
+      "hostPort": "3306"
+    }     
+  ]   
+}

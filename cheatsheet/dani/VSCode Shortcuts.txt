@@ -1,0 +1,24 @@
+VSCode Shortcuts
+
+
+New Terminal: Crtl + Shift + ?
+
+Jump Cursor to Terminal: 
+
+Open shortcut: Crtl + k + s
+
+Crtl + g: jump to code line number
+
+Crtl + d: highlight all content specified
+
+Alt + arrow: move code line
+
+Shift + Alt + f: clean up code
+
+Shift + Crtl + f: find all instances of a word
+
+Auto Rename
+Debugger for Chrome
+Git Lens
+Live Server
+*

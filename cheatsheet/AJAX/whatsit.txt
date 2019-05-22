@@ -1,0 +1,7 @@
+async js and xml (or json)
+
+update ONLY some part of website
+
+:::::
+
+https://gist.github.com/joyrexus/7307312

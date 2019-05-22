@@ -1,0 +1,35 @@
+1
+SELECT title FROM Movie
+WHERE director = "Steven Spielberg";
+
+2
+SELECT DISTINCT year FROM Movie
+LEFT JOIN Rating ON Movie.mID = Rating.mID
+WHERE stars >= 4
+
+3
+SELECT DISTINCT title FROM Movie
+LEFT JOIN Rating ON Movie.mID = Rating.mID
+WHERE stars IS NULL
+
+4
+SELECT DISTINCT name FROM Reviewer
+LEFT JOIN Rating ON Reviewer.rID = Rating.rID
+WHERE ratingDate IS NULL
+
+5
+SELECT name, title, stars, ratingDate FROM Reviewer
+LEFT JOIN Rating ON Reviewer.rID = Rating.rID
+LEFT JOIN Movie ON Rating.mID = Movie.mID
+ORDER BY name, title, stars ASC
+
+6
+SELECT DISTINCT name, title FROM Reviewer
+LEFT JOIN Rating ON Reviewer.rID = Rating.rID
+LEFT JOIN Movie ON Rating.mID = Movie.mID
+GROUP BY title
+HAVING COUNT(ratingDate) > 1, 
+
+
+SELECT title FROM  articles ar ------> (ar rvidítés utal ezentúl az author táblára
+

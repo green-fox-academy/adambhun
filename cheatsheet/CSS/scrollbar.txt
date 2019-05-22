@@ -1,0 +1,5 @@
+max-width/height
++overflow: auto
+
+mindkét irányba:
+overflow: scroll

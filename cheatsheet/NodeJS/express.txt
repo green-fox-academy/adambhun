@@ -1,0 +1,27 @@
+npm init -y 
+
+npm install $  --save
+$ = mysql nodemon xmlhttprequest ejs express dotenv
+
+(start server) - node app
+
+
+How to use NODEMON
+add this to package.json
+
+  "scripts": {
+    "start": "nodemon app.js"
+
+indítás: npm start
+
+SET ACCEPTED HEADERS
+let accepts = require('accepts')
+req.accepts(
+
+
+
+SEND HTML
+
+app.use("/public", express.static("public"));
+  res.sendFile(path.join(__dirname, './public/views/home.html'));
+const path = require('path');

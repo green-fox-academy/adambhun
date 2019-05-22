@@ -1,0 +1,7 @@
+add this to get:
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+
+chrome extension

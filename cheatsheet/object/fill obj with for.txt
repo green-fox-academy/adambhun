@@ -1,0 +1,19 @@
+wordcount
+
+szöveg arrayre bont
+countarray : rendezett obj array
+
+
+if(text[word] === undefined) {
+text[word] = 1;
+countarray.push(word);
+} else {
+text[word] = text[word] +1;
+
+countarray.sort(function1);
+
+  function1 (a, b) {
+    var countA = counts[a];
+    var countB = counts[b];
+    return countB - countA;
+  }

@@ -1,0 +1,166 @@
+/* Exercise 3
+In this exercise you will create an order manager application for a restaurant. We need to track the status of an order and check the availability of the ingredients. You can read the specification below
+
+Dish
+Create a Dish class, this will represent a dish what can be ordered from the restaurant. It has 2 private fields (these fields must be set through the constructor)
+
+name - string
+ingredients - map, for the sake of simplicity in our fictive world there are only two ingredients (ingredient1, ingredient2)
+and one public method
+
+getIngredients() - which returns the ingredients field
+Orders
+Create an Order class with 3 private fields
+
+id - a randomly generated number (1000 < x <= 9999) for each order it cannot be set as constructor argument
+status - a string, its default value is created, cannot be set as constructor argument
+dishes - a Dish array which is set through the constructor as argument
+and 4 methods
+
+delay() - it has no parameter and sets the status field to waiting
+deliver() - it has no parameter and sets the status field to delivered
+reject() - it has no parameter and sets the status field to rejected
+getDishes() - it has no parameter and returns the Dishes associated with the Order
+Create an OnlineOrder class which is a special Order, it has one more private field
+
+address - a string, which can be set through the constructor just like the dishes
+Finally create an OfflineOrder which is a special Order, it has one more private field
+
+table - a number, it is set from the constructor just like the dishes
+Restaurant
+Create a Restaurant class. This class will process the orders. It has 1 private field which must be set through the constructor.
+
+inventory - a map. It will hold the available ingredients (it will have only two keys, ingredient1 and ingredient2)
+and 1 public method
+
+receiveOrder() - it takes an Order as argument.
+if the dishes in the order can be made (there is enough ingredients in the inventory) then it must reduce the resources in the inventory and call the deliver method on the order
+if there is not enough ingredients and the parameter is an online order then it must call the delay method of the order
+otherwise it must reject the order
+finally it must return the order */
+
+import { getARandomNumber } from './utils';
+
+interface IngredientsInterFace {
+  ingredient1: number,
+  ingredient2: number,
+};
+
+class Dish {
+  private name: string;
+  private ingredients: IngredientsInterFace;
+
+  public constructor(
+    pName: string,
+    pIngredients: IngredientsInterFace
+  ) {
+    this.name = pName;
+    this.ingredients = pIngredients;
+  }
+
+  public getIngredients(): IngredientsInterFace {
+    return this.ingredients;
+  }
+}
+
+class Order {
+  private id: number; // a randomly generated number (1000 < x <= 9999) for each order it cannot be set as constructor argument
+  private status: string; // a string, its default value is created, cannot be set as constructor argument
+  private dishes: Dish[]; //a Dish array which is set through the constructor as argument
+
+  public constructor(pDishes: Dish[] = []) {
+    this.id = getARandomNumber(1001, 9999);
+    this.status = 'created';
+    this.dishes = pDishes;
+  }
+
+  public delay(): void { // - it has no parameter and sets the status field to waiting
+    this.status = 'waiting';
+  }
+
+  public deliver(): void { //- it has no parameter and sets the status field to delivered
+    this.status = 'delivered';
+  }
+
+  public reject(): void { // - it has no parameter and sets the status field to rejected
+    this.status = 'rejected';
+  }
+
+  public getDishes(): Dish[] { // - it has no parameter and returns the Dishes associated with the Order
+    return this.dishes;
+  }
+
+  private getSumIngredient1(): number {
+    return this.dishes.reduce(
+      (sum: number, dish: Dish): number => sum + dish.getIngredients().ingredient1,
+      0
+    );
+  }
+
+  private getSumIngredient2(): number {
+    return this.dishes.reduce(
+      (sum: number, dish: Dish): number => sum + dish.getIngredients().ingredient2,
+      0
+    );
+  }
+
+  public getSumIngredients(): IngredientsInterFace {
+    return {
+      ingredient1: this.getSumIngredient1(),
+      ingredient2: this.getSumIngredient2(),
+    }
+  }
+}
+
+class OnlineOrder extends Order {
+  private address: string;
+
+  public constructor(pDishes: Dish[] = [], pAddress: string = '') {
+    super(pDishes);
+    this.address = pAddress;
+  }
+}
+
+class OfflineOrder extends Order {
+  private table: number;
+
+  public constructor(pDishes: Dish[] = [], pTable: number = 0) {
+    super(pDishes);
+    this.table = pTable;
+  }
+}
+
+class Restaurant {
+  private inventory: {
+    ingredient1: number,
+    ingredient2: number,
+  };
+
+  public constructor(pInventory: {
+    ingredient1: number,
+    ingredient2: number,
+  }) {
+    this.inventory = pInventory;
+  }
+
+  public receiveOrder(order: Order = null): Order {
+    const orderSumIngredients: IngredientsInterFace = order.getSumIngredients();
+
+    if (
+      orderSumIngredients.ingredient1 <= this.inventory.ingredient1 &&
+      orderSumIngredients.ingredient2 <= this.inventory.ingredient2
+    ) {
+      this.inventory.ingredient1 -= orderSumIngredients.ingredient1;
+      this.inventory.ingredient2 -= orderSumIngredients.ingredient2;
+      order.deliver();
+    } else if (order instanceof OnlineOrder === true) {
+      order.delay();
+    } else {
+      order.reject();
+    }
+
+    return order;
+  }
+}
+
+export { }

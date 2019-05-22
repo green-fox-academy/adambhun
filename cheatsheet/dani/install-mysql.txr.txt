@@ -1,0 +1,14 @@
+
+Install MySQL
+
+- open https://dev.mysql.com/downloads/mysql/
+- Download Installer
+- Install
+- Open MySQL Installer in Apps
+- Add (Community) Server, Install
+
+Use MySQL Command Line or
+VSC with MySQL plugin or
+install MySQL Workbench
+
+*

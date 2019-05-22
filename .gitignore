@@ -3,3 +3,11 @@ package-lock.json
 .env
 .terraform
 terraform.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+*.pem
+project/megalotis-devops
+
+project/GitHub-Advanced-Workshop
+
+orientation/week-07/day-1

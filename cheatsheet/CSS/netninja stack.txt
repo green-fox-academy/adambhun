@@ -1,0 +1,6 @@
+$("a.stack").on("click", fucntion(){
+  $("aricle").addClass("stack"):
+}):
+$("a.grid").on("click", function(){
+  $("article").removeclass("stack"):
+}):

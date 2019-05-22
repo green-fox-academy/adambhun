@@ -1,0 +1,10 @@
+function avgRating(file: string) {
+  let fileContent: string;
+  try {
+    fileContent = fs.readFileSync(file, 'utf-8');
+    if (!fileContent) {
+    throw new Error('File does not exist!');
+  }
+  } catch (error) {
+    console.log(error.message);    
+  }

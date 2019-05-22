@@ -1,0 +1,16 @@
+//relative refs - use them instead of hashes
+
+//eg. move up one commit
+git checkout bugFix^
+same as - git checkout bugFix~1
+
+//branch forcing
+//moves (by force) the master branch to three parents behind HEAD.
+-reassign branch
+git branch -f master HEAD~3
+
+//add interactively
+git add -i
+
+//github jelszó megjegyez
+git config credential.helper store

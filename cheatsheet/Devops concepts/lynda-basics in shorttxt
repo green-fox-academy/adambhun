@@ -1,0 +1,76 @@
+CAMS
+
+culture
+automation
+lean
+measurement - costs revenue employee satisfaction time to do this and that
+sharing
+
+
+
+focus on big bicture
+optimize without overwhelming other processes
+
+amplifying feedback loops
+
+learning and experimentation
+
+
+
+lean management
+the visible ops book
+people over process over tool
+continuous delivery
+lean management
+visible ops
+infrastructure as code
+
+
+dev wants new stuff, ops want to keep service up
+cloud lets you test new infrastructure or deployment
+andon cord> toyota innovation : anyone can request stop on development in case of bug
+dependency injection at runtime
+blue/green deployment (clone environment - swap working and staging on success)
+chaos monkey: max reliabilty
+
+
+communication
+blameless postmortems: meeting 48hrs after incident
+3rd party should run it
+agree on what and why happened
+learn from it
+chatops - use chatbots to issue commands to tools
+books: effective devops, weboperations
+
+
+management:
+no silos, no tribes, autonomous team and shared responsibility, divide team by business function not technology, shadow IT: bypassing normal processes, 
+
+
+kaizen:
+gemba: see for yourself
+plan do check act
+5 whys
+fishbone diagram
+
+agile:
+people over tools
+working software over docs
+customer collaboration < contract negotiation
+quick response over plan
+
+lean:
+books: the lean startup, lean enterprise, lean softw dev
+
+
+tools approach config mgmt:
+-procedural/imperative - commands to get goal
+-functional/declarative - state defined tool-> system state
+-idempotent - same proc many times always same outcome
+-self service - user can killl process
+
+app deployment automation:
+-puppet, chef
+deployment patterns: -canary (see if works)
+-blue green
+-immutable: vid19

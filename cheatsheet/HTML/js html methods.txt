@@ -1,0 +1,5 @@
+createImg(params)  - creates img tag with params as src
+
+
+select by custom data-* attribute
+document.querySelector('[data-direction="out"]')     OR       target.dataset.action

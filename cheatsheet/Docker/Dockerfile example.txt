@@ -1,0 +1,22 @@
+Dockerfile
+//download apline
+FROM alpine:latest
+//apk is what apt-get is in mint. --no-cache option saves disk space
+RUN apk add --no-cache nodejs npm
+
+//create directory in container
+WORKDIR /app
+COPY . /app
+
+RUN npm install
+
+EXPOSE 9005
+
+//this first command makes the img executable
+ENTRYPOINT ["node"]
+
+//argument to command "node"
+CMD ["hello.js"]
+
+//ALTERNATIVE to entrypoint and cmd
+CMD ["npm", "start"]

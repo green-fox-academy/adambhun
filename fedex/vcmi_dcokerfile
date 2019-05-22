@@ -1,0 +1,13 @@
+FROM ubuntu:latest
+
+WORKDIR /hdata
+COPY . /hdata
+
+RUN apt-get update \
+    && apt-get install software-properties-common -y \
+    && apt-add-repository ppa:vcmi/ppa \
+    && apt-get update \
+    && apt-get install vcmi -y \
+    && ln -s /usr/lib/x86_64-linux-gnu/vcmi/libvcmi.so /usr/lib/libvcmi.so \
+    && ln -s /usr/lib/x86_64-linux-gnu/vcmi/libminizip.so /usr/lib/ \
+    && cp -r /hdata/* /usr/share/vcmi

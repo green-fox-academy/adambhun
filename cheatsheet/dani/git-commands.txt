@@ -1,0 +1,30 @@
+
+Basic Git Commands
+
+git config --global user.name ""	set name
+git config --global user.email "@"	set email
+git init	initiate git repository
+git add		stage file
+git diff	check changes to files
+git commit -m	commit message
+git push <REMOTENAME> <BRANCH>	push comitted files to cloud
+git pull <REMOTENAME> <BRANCHNAME>
+git clone <URLFROMGITHUB>	clone remote repository
+git remote add origin <URL>	connect remote repo with local
+git remote set-url origin <URL>	same for Windows
+git remote -v	view remote addresses
+git remote add upstream <URLFROMGITHUB>		updates clone from original repo
+git status	check repo status
+
+
+
+
+
+
+
+
+
+
+
+
+*

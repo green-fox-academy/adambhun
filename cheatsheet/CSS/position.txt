@@ -1,0 +1,9 @@
+relative: relative to element
+
+fixed: based on window (size)
+
+absolute: used with parent w\relative positioning. Not in normal document flow. (floats above)
+
+sticky: x vh görgetés után fixed-re vált
+
+z-ind22:46 2019. 03. 02.ex: legnagyobb szám mindig látszik

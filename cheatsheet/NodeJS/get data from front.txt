@@ -1,0 +1,8 @@
+@ FRONT
+
+module.exports = { variable };
+
+
+@SERVER
+
+const modules = require('path/filename')

@@ -1,0 +1,15 @@
+//describe stuff
+help(function or tzpe or module name)
+//module's object
+help(math.radians)
+
+//show builtins
+dir(__builtins__)
+
+//show module's objects
+dir(datetime)
+
+//use module variable
+>message = "GVR was born on {:%A, %B %d, %Y}."
+>print(message.format(gvr))
+GVR was born on Tuesday, January 31, 1956.

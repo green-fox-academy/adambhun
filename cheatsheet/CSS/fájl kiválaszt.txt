@@ -1,0 +1,1 @@
+src helyett url(asdf/lkjd.jpg)

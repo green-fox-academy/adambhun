@@ -1,0 +1,6 @@
+res.writeHead(200, {'Content-Type': 'application/json'});
+var object = {
+key: value
+};
+res.send(JSON.stringify(object));
+

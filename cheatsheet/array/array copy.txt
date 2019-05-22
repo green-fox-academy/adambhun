@@ -1,0 +1,4 @@
+don`t use   array1 = array2
+It would point to the same memory location.
+
+use foreach, push to new array

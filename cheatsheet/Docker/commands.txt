@@ -1,0 +1,43 @@
+//first container IP
+172.17.0.2
+
+//show (non-running too) containers
+docker ps -a
+
+//show images
+docker images
+
+//create img (t- - name) - note the dot
+docker build -t w0project:latest .
+
+//create container (-it - w/ interactive terminal) (-d - daemon mode) (-p - ports host:container)
+docker run -it -d -p 9002:9005 w0project:latest
+
+//delete img
+docker rmi name:version
+
+//delete every img
+docker rmi $(docker images -q)
+
+//stop container
+docker stop name (eg. infallible_blackwell)
+
+//delete containers
+docker rm $(docker ps -aq)
+
+//run command in running container
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+eg. docker exec -it firstDB /bin/bash
+
+//no sudo for docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+//push to docker repo
+//tag the image
+docker tag imgname dockerhubname/imgname
+//push
+docker push dockerhubname/imgname
+
+//pull
+docker pull dockerhubname/imgname

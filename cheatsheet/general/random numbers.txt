@@ -1,0 +1,19 @@
+RANDOM NUM
+
+function getARandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+
+
+4 DIGITS
+
+function generateSecretCode() {
+  return `${getARandomNumber(0, 9)}${getARandomNumber(0, 9)}${getARandomNumber(0, 9)}${getARandomNumber(0, 9)}`;
+}
+
+
+
+
+

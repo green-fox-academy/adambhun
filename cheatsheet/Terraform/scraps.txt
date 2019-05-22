@@ -1,0 +1,25 @@
+# resource "tls_private_key" "example" {
+#   algorithm = "RSA"
+#   rsa_bits  = 4096
+# }
+
+# resource "aws_key_pair" "res_key" {
+#   key_name   = "${var.key_name}"
+#   public_key = "ssh-rsa "
+# }
+
+# resource "aws_internet_gateway" "staging-gateway" {
+#   vpc_id = "${aws_security_group.ec2-allow-all.id}"
+# tags {
+#     Name = "aws_internet_gateway"
+#   }
+# }
+
+resource "aws_eip" "ip-staging" {
+  instance = "${aws_instance.staging.id}"
+  vpc      = false
+}
+
+output "ip-staging" {
+  value = "${aws_instance.staging.public_ip}"
+}

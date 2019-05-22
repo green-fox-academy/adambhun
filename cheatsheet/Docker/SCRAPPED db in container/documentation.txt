@@ -1,0 +1,38 @@
+Dockerfile
+
+//download msql
+FROM mysql:latest
+
+//set credentials from dotenv
+ENV MYSQL_ROOT_PASSWORD asdf
+ENV MYSQL_DATABASE firstDB
+ENV MYSQL_USER adam
+ENV MYSQL_PASSWORD 1234
+
+//populate db
+ADD fillDB.sql /docker-entrypoint-initdb.d
+//specfify container's port to use
+EXPOSE 3306
+---------------------------------------------------------
+
+commands:
+
+create img:
+// (-t \ tag) (name:version)
+docker build -t database:latest .
+
+create container:
+// (--name - container name) (ports - host:container) (daemon mode) (name:version) (-p - ports host:container)
+docker run --name dbcontainer -p6666:3306 -d database:latest
+
+access db with bash:
+//
+docker exec -it dbcontainer /bin/bash
+
+    //user \ password
+    mysql -uroot -pasdf
+    
+    sql commands from this point
+
+
+----------------------------------------------------------------------------

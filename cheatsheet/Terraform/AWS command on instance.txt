@@ -1,0 +1,18 @@
+//General way to execute commands:
+
+  provisioner "file" {
+    source      = "script.sh"
+    destination = "/tmp/script.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/script.sh",
+      "/tmp/script.sh args",
+    ]
+  }
+
+
+//AWS
+
+The user data field is idiomatic because it's native to AWS, whereas the remote-exec provisioner is specific to Terraform, which is just one of many ways to call the AWS API.

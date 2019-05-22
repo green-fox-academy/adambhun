@@ -1,0 +1,2 @@
+Orsi [10:25 AM]
+FYI: if you import sql files in mysql using shell, write: source C:\your path\sql file name without ; at the end, otherwise it won't do the job

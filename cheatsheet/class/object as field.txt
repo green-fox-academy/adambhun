@@ -1,0 +1,42 @@
+/* class Dish {
+  private name: string;
+  private ingredients: object;
+  constructor(name: string, ingredients: object) {
+    this.name = name;
+    this.ingredients = ingredients;
+  }
+} */
+
+________________________________________
+
+
+export class Dish {
+  private name: string;
+  private ingredients = {
+    ingredient1: 0,
+    ingredient2: 0
+  };
+  // need to specify in the contructor parameter our object
+  constructor(name: string,  {  ingredient1,  ingredient2 }) {
+    this.name = name;
+    this.ingredients = {
+      ingredient1,
+      ingredient2
+    };
+}
+
+_____________________________________________
+
+class Restaurant {
+  // our inventory can hold only 2 thing
+  private inventory = {
+    ingredient1: 0,
+    ingredient2: 0
+  }
+
+  constructor(inventory) {
+    this.inventory = {
+      ingredient1: inventory.ingredient1,
+      ingredient2: inventory.ingredient2
+    };
+}

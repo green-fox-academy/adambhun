@@ -1,0 +1,45 @@
+//command output in string
+echo "Current date and time is $(date)"
+
+//declare variable
+NAME=Adam
+//usage
+echo "Hello, $NAME"
+
+//exit status of last command
+echo $?
+
+//switch to root session
+sudo su -
+
+//process to background, so you don't need to open another terminal
+ctrl z
+
+//browse in terminal
+w3m index.hu
+
+//restart a service
+sudo systemctl restart jenkins
+//or
+sudo systemd restart jenkins
+
+//start a service @ boot
+systemctl enable jenkins
+
+//make file executable
+chmod +x file.sh
+//install from (sh) file
+./file.sh
+
+//add dir to path variable
+export PATH="$PATH:/path/to/dir"
+//make it permanent
+source ~/.zshrc
+
+//tcpdump
+https://hackertarget.com/tcpdump-examples/
+
+//find command location
+which command
+
+https://www.thegeekstuff.com/2011/08/bash-history-expansion/

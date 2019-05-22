@@ -1,0 +1,13 @@
+For those who have trouble running "ts-node" in their GitBash command line on Windows OS.
+
+
+
+1. Uninstall GitBash
+
+2. Run the installation wizard and use the default settings except the one on the screen shot. You should choose "Use Windows' default command window"
+
+3. Start up the newly installed GitBash and run 'npm install -g typescript' and wait for the installation.
+
+4. Repeat step 3 with 'npm install -g ts-node'.
+
+5. Voil�...the command 'ts-node' should work now.

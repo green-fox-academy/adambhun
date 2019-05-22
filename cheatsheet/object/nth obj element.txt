@@ -1,0 +1,24 @@
+use map!
+
+
+function nth(obj, n)
+{
+  var key, i;
+
+  for (key in obj)
+  {
+    if (obj.hasOwnProperty(key)) // always do this when you scan an object
+    {
+      if (key.indexOf("item") === 0) // this is the filter
+      {
+        i = parseInt(key.substring(4), 10); // parse the numeral after "item"
+        if (i === n)
+        {
+          return obj[key]; // return this value
+        }
+      }
+    }
+  }
+
+  return null;
+}
