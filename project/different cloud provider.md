@@ -49,14 +49,14 @@ To create a bucket sign in and select Storage from the menu on the left. Select 
 Cloud Storage needs a project to create resources. Create or select an existing project. Confirm the selection.
 Next, you have to name your bucket and choose a type - and possibly a location for it. The type determines how much the bucket costs.
 
-<img src="assets/createbu.png">
+<img src="assets/gbucket1.png">
+<img src="assets/gbucket2.png">
 
 Next you can upload files or folders and set permissions and policies for each.
 
-<img src="assets/bucketpubl.png">
-<img src="assets/buupload.png">
-<img src="assets/bugrant.png">
-<img src="assets/buhost.png">
+<img src="assets/gbucket3.png">
+<img src="assets/gbucket4.png">
+<img src="assets/gbucket5.png">
 
 To delete a bucket go back to "Browser", tick the checkbox next to the bucket's name and click on delete. If you don't see a delete button, click on the three dots button to make it appear.
 
