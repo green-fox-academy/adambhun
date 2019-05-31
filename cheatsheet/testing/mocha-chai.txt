@@ -1,0 +1,10 @@
+Note:
+
+package.json:
+
+  "scripts": {
+    "test": "mocha || true"
+  },
+
+
+This will have the tests run using mocha, and if one of the tests fails, it will return a shorter output on the console.

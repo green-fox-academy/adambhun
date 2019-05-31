@@ -1,2 +1,0 @@
-    'INSERT INTO shorturls (url, alias, secretCode) VALUES (?, ?, ?)',
-    [url, alias, generateSecretCode()],

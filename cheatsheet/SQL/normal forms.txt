@@ -1,0 +1,14 @@
+first
+
+foreign key is used to reference tables -> no repeating
+
+
+second
+
+intersection tables are used (relational tables)
+
+
+
+third
+
+All the non-prime attributes must depend on the primary key only.

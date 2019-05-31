@@ -1,0 +1,19 @@
+//connect
+mysql -u adam -p 3306 -h localhost 
+
+CREATE DATABASE databasename;
+
+USE databasename;
+
+CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers;
+
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);

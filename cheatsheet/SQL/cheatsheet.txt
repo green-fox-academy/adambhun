@@ -1,2 +1,109 @@
 https://github.com/green-fox-academy/astral-syllabus/blob/master/week-06/day-02/sql-basics.md
 
+
+//PRIMARY KEY
+
+CREATE TABLE roles(
+   role_id INT AUTO_INCREMENT,
+   role_name VARCHAR(50),
+   PRIMARY KEY(role_id)
+);
+
+CREATE TABLE users(
+   user_id INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(40),
+   password VARCHAR(255),
+   email VARCHAR(255)
+);
+
+
+//GROUP BY and SELECT DISTINCT are the same, but the latter is faster
+
+
+//CASCADING DELETION
+
+CREATE TABLE buildings (
+    building_no INT PRIMARY KEY AUTO_INCREMENT,
+    building_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE rooms (
+    room_no INT PRIMARY KEY AUTO_INCREMENT,
+    room_name VARCHAR(255) NOT NULL,
+    building_no INT NOT NULL,
+    FOREIGN KEY (building_no)
+        REFERENCES buildings (building_no)
+        ON DELETE CASCADE
+);
+
+
+//UNIQUE
+
+CREATE TABLE IF NOT EXISTS suppliers (
+    supplier_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    phone VARCHAR(12) NOT NULL UNIQUE,
+    address VARCHAR(255) NOT NULL,
+    CONSTRAINT uc_name_address UNIQUE (name , address)
+);
+
+The first UNIQUE constraint is applied on the phone column. It means that every supplier must have a distinct phone number. In other words, no two suppliers have the same phone number.
+
+The second UNIQUE constraint has a name uc_name_address that enforces the uniqueness of values in the name and address columns.  It means suppliers can have the same name or address, but cannot have the same name and address.
+
+
+
+//SELF-JOIN
+
+http://www.mysqltutorial.org/mysql-self-join/
+
+
+
+//PARAMETERS
+
+const insertOne = dogToInsert => new Promise((fullfill, reject) => {
+    mysqlConn.query('INSERT INTO dogs(name, age) VALUES (?,?);',
+        [dogToInsert.name, dogToInsert.age],
+        (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                fullfill(results);
+            }
+        })
+})
+
+
+
+//IMPORT SQL FILE
+
+tO import sql files in mysql using shell, write: source C:\your path\sql file name without ; at the end, otherwise it won't do the job
+
+
+
+
+//WHERE & HAVING
+
+WHERE is applied before GROUP BY, HAVING is applied after (and can filter on aggregates).
+
+
+//EXISTS
+
+SELECT 
+    customerNumber, customerName
+FROM
+    customers
+WHERE
+    EXISTS( SELECT 
+            1
+        FROM
+            orders
+        WHERE
+            orders.customernumber = customers.customernumber);
+
+
+
+//UPDATE & REPLACE
+
+REPLACE replaces a whole row using default values for omitted columns
