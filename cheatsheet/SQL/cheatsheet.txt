@@ -79,6 +79,8 @@ const insertOne = dogToInsert => new Promise((fullfill, reject) => {
 //IMPORT SQL FILE
 
 tO import sql files in mysql using shell, write: source C:\your path\sql file name without ; at the end, otherwise it won't do the job
+//OR
+mysql -uroot -proot < init.sql
 
 
 

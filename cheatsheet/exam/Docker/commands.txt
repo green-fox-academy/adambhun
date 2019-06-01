@@ -1,0 +1,22 @@
+//run container with interactive terminal in detached mode with volume
+docker run -it -d -v host:container dfa0cd25f766
+
+docker-compose up
+
+//remove every image
+docker rmi $(docker images -q) -f
+
+//show every container
+docker ps -a
+
+//remove containers
+docker rm $(docker ps -aq)
+
+//stop every container
+docker stop $(docker ps -aq)
+
+//show images
+docker images
+
+//run terminal in running container
+docker exec -it 1f443fee28f3  /bin/bash 

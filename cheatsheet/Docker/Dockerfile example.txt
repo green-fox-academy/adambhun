@@ -12,7 +12,7 @@ RUN npm install
 
 EXPOSE 9005
 
-//this first command makes the img executable
+//this command executes whenever the container starts
 ENTRYPOINT ["node"]
 
 //argument to command "node"
