@@ -10,8 +10,8 @@ docker images
 //create img (t- - name) - note the dot
 docker build -t w0project:latest .
 
-//create container (-it - w/ interactive terminal) (-d - daemon mode) (-p - ports host:container)
-docker run -it -d -p 9002:9005 w0project:latest
+//create container (-it - w/ interactive terminal) (-d - daemon mode) (-p - ports host:container) (-v volume)
+docker run -it -d -p 9002:9005 -v hostFolder:containerFolder w0project:latest
 
 //delete img
 docker rmi name:version
@@ -41,3 +41,5 @@ docker push dockerhubname/imgname
 
 //pull
 docker pull dockerhubname/imgname
+
+docker-compose up

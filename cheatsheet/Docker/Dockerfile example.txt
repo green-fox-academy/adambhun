@@ -1,12 +1,19 @@
-Dockerfile
 //download apline
 FROM alpine:latest
+
 //apk is what apt-get is in mint. --no-cache option saves disk space
 RUN apk add --no-cache nodejs npm
 
+ENV MYSQL_USER adam
+
+VOLUME /folder
+
 //create directory in container
 WORKDIR /app
+
+//copy sg into the container
 COPY . /app
+ADD . /app
 
 RUN npm install
 
