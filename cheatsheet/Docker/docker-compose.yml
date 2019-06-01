@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    database:
+        build: database/
+        # image: asdf
+        
+        # ports:
+        #     - "9005:3306"
+        environment:
+            MYSQL_USER: adam
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: asdf
+        network_mode: "host"
+
+    server:
+        build: ./
+        depends_on:
+            - database
+        ports:
+            - "9006:9006"
+    volumes:
+          - ./:/app 
