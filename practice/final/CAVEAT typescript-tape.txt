@@ -1,0 +1,1 @@
+npm install --save-dev tape @types/tape
