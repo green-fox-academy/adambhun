@@ -1,0 +1,33 @@
+definition
+
+in short
+extending agile to the whole service not just code. 
+
+long
+agile
+ + ci-cd
+ + automation
+ + dev-ops-client teams collaboration
+ + infrastructure as code
+ + more at senior level (lean management, 5s, kaizen, cooperation, project management, planning)
+
+
+
+what problems you might face
+
+- infrastructure: redundancy, availability (dev-ops conflict), scaling, cost-efficiency, resource usage
+
+- access control
+
+- monitoring
+
+- automatition: testing, deployment, scaling
+
+- build applications with different mindset (scalability, containers, microservices)
+
+what you need to know, what skills you should have:
+- patience - stuff WILL go wrong
+- diligence - documentation
+- know linux stuff
+- know network stuff
+- beefy computer
