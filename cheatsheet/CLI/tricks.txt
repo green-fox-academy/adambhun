@@ -46,6 +46,9 @@ export PATH="$PATH:/path/to/dir"
 //make it permanent
 source ~/.zshrc
 
+//install tar.gz
+sudo tar -xzf Postman-linux-ia32-7.2.2.tar.gz -C /opt
+
 //tcpdump
 https://hackertarget.com/tcpdump-examples/
 
