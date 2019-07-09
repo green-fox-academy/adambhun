@@ -71,3 +71,31 @@ youtube-dl url
 //download from a dozen links
 wget -i /path/to/importfile
 
+//EOF
+//"EOF" is known as a "Here Tag". Basically <<Here tells the shell that you are going to enter a multiline string until the "tag" Here. You can name this tag as you want, it's often EOF or STOP.
+//$ cat >> test <<HERE
+//> Hello world HERE <-- Not by itself on a separate line -> not considered end of string
+//> This is a test
+//>  HERE <-- Leading space, so not considered end of string
+//> and a new line
+//> HERE <-- Now we have the end of the string
+$ cat <<EOF | grep 'b' | tee b.txt
+foo
+bar
+baz
+EOF
+//The b.txt file contains bar and baz lines. The same output is printed to stdout.
+
+//show progress
+//cp test.deb test2.deb | pv --eta
+
+//sed for json data (non-standard)
+jq
+
+//pass credentials to command
+sh asdf.sh username password
+//git
+git clone https://username : passwd @ repo
+
+//filter text
+https://www.geeksforgeeks.org/awk-command-unixlinux-examples/

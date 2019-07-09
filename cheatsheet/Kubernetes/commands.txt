@@ -1,0 +1,35 @@
+//You can point your docker client to the VM's docker daemon by running
+eval $(minikube docker-env)
+
+//describe element
+kubectl describe pod query 
+
+//list stuff
+kubectl get all
+
+//start pod
+kubectl apply -f query.yml
+
+//get pod port
+kubectl get pods podname --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
+
+//delete deployment
+kubectl delete -n NAMESPACE deployment DEPLOYMENT
+
+//delete everything created by all the files in this folder
+kubectl delete -f .
+
+//get local docker image in minikube
+//paste daemon.json to /etc/docker
+//-host:
+	kubectl port-forward --namespace kube-system $(kubectl get po -n kube-system | grep kube-registry-v0 | awk '{print $1;}') 5000:5000
+
+	docker push localhost.localdomain:5000/teachingmaterialqueryservice
+//-minikube
+	eval $(minikube docker-env)
+	docker pull localhost.localdomain:5000/teachingmaterialqueryservice
+
+
+//show pods w/ labels
+kubectl get po --show-labels
+

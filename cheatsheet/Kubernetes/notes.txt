@@ -1,0 +1,46 @@
+node - computer in kn
+
+cluster - effectivel one computer made up of many computers
+
+persistent volume - volume connected to cluster, not node
+
+pod - logical group of containers
+
+deployment - num of pods on cluster
+
+//nodeport
+visible outside the cluster
+
+//ClusterIP
+onlv visible in the cluster
+
+
+
+velocity
+
+immutability
+
+declarative config
+
+self-healing
+
+decoupling - scalability, less communication overhead
+
+pod = group of containers as a deployable unit
+
+load balancing
+
+namespaces
+
+
+
+//chain of communication
+host
+docker
+virtualbox
+minikube (cluster)
+services
+kube-dns
+pods
+containers
+apps

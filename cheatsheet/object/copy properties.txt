@@ -1,1 +1,7 @@
-object.assign
+//new deep copv of object
+
+b = Object.assign({},a);
+
+//shallow copv
+b = Object.assign(a);
+

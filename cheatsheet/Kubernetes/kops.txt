@@ -1,0 +1,3 @@
+kops edit ig nodes --name ${NAME}
+
+kops get ig nodes --name ${NAME}

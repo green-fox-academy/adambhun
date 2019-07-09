@@ -1,0 +1,4 @@
+//self-invoke and self-execute: it will run once, but cannot be called or exported
+(function all(){
+  //code
+})();
