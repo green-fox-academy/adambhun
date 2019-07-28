@@ -8,11 +8,10 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          sh "ls"
-          sh "cd practice@tmp"
-          sh "ls"
-          sh "cd query"
-          docker.build REGISTRY + ':$BUILD_NUMBER'
+          sh """
+            cd practice/query
+            pwd
+            """.docker.build REGISTRY + ':$BUILD_NUMBER'
         }
       }
     }
