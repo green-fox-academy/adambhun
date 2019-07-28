@@ -9,6 +9,8 @@ pipeline {
       steps{
         dir('practice/query'){
           script {
+            sh "pwd"
+            sh "ls"
             docker.build REGISTRY + ':$BUILD_NUMBER'
           }
         }
