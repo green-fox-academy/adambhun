@@ -9,9 +9,7 @@ pipeline {
       steps{
         script {
           sh "ls"
-          sh "cd practice"
-          sh "ls"
-          sh "cd practice"
+          sh "cd practice@tmp"
           sh "ls"
           sh "cd query"
           docker.build REGISTRY + ':$BUILD_NUMBER'
