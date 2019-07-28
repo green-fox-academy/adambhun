@@ -4,31 +4,29 @@ pipeline {
     REGISTRY = 'greenfox/teaching-material-query-service'
   }
 
-dir('practice/query') {
-    sh "pwd"
-}
   stages {
     stage('Building image') {
       steps{
         script {
-          sh "pwd"
+          sh "cd practice/query"
           docker.build REGISTRY + ':$BUILD_NUMBER'
         }
       }
     }
 
     stage('Sonarqube') {
-        environment {
-            scannerHome = tool 'SonarQubeScanner'
+      environment {
+        scannerHome = tool 'SonarQubeScanner'
+      }
+      steps {
+        sh "pwd"
+        withSonarQubeEnv('sonarqube') {
+          sh "${scannerHome}/bin/sonar-scanner"
         }
-        steps {
-            withSonarQubeEnv('sonarqube') {
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
-            timeout(time: 10, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-            }
+        timeout(time: 10, unit: 'MINUTES') {
+          waitForQualityGate abortPipeline: true
         }
+      }
     }
 
     stage('Cleanup') {
