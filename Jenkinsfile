@@ -7,12 +7,10 @@ pipeline {
   stages {
     stage('Building image') {
       steps{
-        script {
-          sh '''
-            cd practice/query
-            pwd
+        dir('practice/query'){
+          script {
             docker.build REGISTRY + ':$BUILD_NUMBER'
-          '''
+          }
         }
       }
     }
