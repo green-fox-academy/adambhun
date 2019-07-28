@@ -11,7 +11,7 @@ pipeline {
           sh """
             cd practice/query
             pwd
-            """.docker.build REGISTRY + ':$BUILD_NUMBER'
+          """.docker.build REGISTRY + ':$BUILD_NUMBER'
         }
       }
     }
