@@ -8,7 +8,9 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          sh "cd practice/query"
+          sh "ls"
+          sh "cd practice"
+          sh "cd query"
           docker.build REGISTRY + ':$BUILD_NUMBER'
         }
       }
