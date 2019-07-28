@@ -1,0 +1,69 @@
+//describe stuff
+help(function or type or module name)
+help("".replace)
+//module's object
+help(math.radians)
+
+//show builtins
+dir(__builtins__)
+
+//show module's objects
+dir(datetime)
+
+//import module
+import os
+
+//use module variable
+>message = "GVR was born on {:%A, %B %d, %Y}."
+>print(message.format(gvr))
+GVR was born on Tuesday, January 31, 1956.
+
+//with - enter - exit
+class DatabaseConnection(object):
+
+    def __enter__(self):
+        # make a database connection and return it
+        ...
+        return self.dbconn
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # make sure the dbconnection gets closed
+        self.dbconn.close()
+        ...
+with DatabaseConnection() as mydbconn:
+    # do stuff
+
+
+
+//list[] is like tuple() but tuple is immutable
+//ditionary{} doesn't maintain indices  - key value pairs (value can be tuple)
+//access element of the above and striings
+variable[element]
+
+//zip
+zip creates a tuple from multiple iterables
+//iterate through multiple lists with one loop
+for i,j in zip(arr1,arr2):
+	print(i,j)
+
+
+
+//comments
+#single line
+r"""
+documentation(multiline)
+"""
+Note: r is needed so special characters (\n) are ignored
+
+
+//open other program with python
+import subprocess
+subprocess.Popen('/usr/bin/gnome-calculator')
+subprocess.Popen(['C:\\Windows\\notepad.exe', 'C:\\hello.txt'])
+
+
+//most important modules
+glob2 - search for files
+os
+numPy - array manipulation
+subprocess

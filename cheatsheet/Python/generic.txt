@@ -1,0 +1,54 @@
+//open\create file
+file=open<"example.txt",'w'>
+//second param can be:
+ - a - append
+ - r - read
+ - w - write
+ - all of above with + appended
+content=file.readlines<>
+print<content> //this sets pointer to file's end
+//reset pointer
+file.seek<0>
+
+//arrav from content
+content=[i.rstrip<"\n"> for i in content]
+
+//to write file (returns number of chars written)
+file.write("asdf")
+
+//close file so changes are saved and file can be accessed again
+file.close<>
+
+
+//CLI - ask for input
+greeting = input("Write a greeting: ")
+
+
+
+
+
+//function example
+def minutes_to_hours(minutes, minutes=70):
+	hours = minutes / 60.0
+	return hours
+
+print(minutes_to_hours(70, (second param is optional)))
+
+//lambda (anonym function)
+lambda x: x.latitude if x != None else None		# if not None call latiutude on x, else return None
+
+
+//if - else
+if a > 5: 
+	print("less than 5")
+else:
+	print("equal or greater than 5")
+elif a == 5:
+	print("equal to 5")
+else:
+	print("greater than 5")
+
+
+
+y
+>

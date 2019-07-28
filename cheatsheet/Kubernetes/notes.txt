@@ -15,25 +15,6 @@ visible outside the cluster
 onlv visible in the cluster
 
 
-
-velocity
-
-immutability
-
-declarative config
-
-self-healing
-
-decoupling - scalability, less communication overhead
-
-pod = group of containers as a deployable unit
-
-load balancing
-
-namespaces
-
-
-
 //chain of communication
 host
 docker
@@ -44,3 +25,5 @@ kube-dns
 pods
 containers
 apps
+
+
