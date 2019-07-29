@@ -21,9 +21,6 @@ pipeline {
     }
 
     stage('Sonarqube') {
-      environment {
-        scannerHome = tool 'SonarQubeScanner'
-      }
       steps {
         sh "pwd"
         withSonarQubeEnv('sonarqube') {
@@ -34,12 +31,12 @@ pipeline {
         }
       }
     }
+  }
 
-    stage('Cleanup') {
-      steps{
-        sh 'docker rmi ${REGISTRY}:${BUILD_NUMBER}'
-      }
+  post {
+    always {
+      sh 'docker rmi ${REGISTRY}:${BUILD_NUMBER}'
+      sh 'docker rmi ${REGISTRY}:24'
     }
   }
 }
-
