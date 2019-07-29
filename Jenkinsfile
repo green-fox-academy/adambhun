@@ -12,8 +12,9 @@ pipeline {
             sh """
               pwd
               ls
+              docker build --help
             """
-            docker.build('${REGISTRY}:${BUILD_NUMBER}', "-f practice/query/Dockerfile")
+            docker.build('${REGISTRY}:${BUILD_NUMBER}', "practice/query/")
           }
         }
       }
