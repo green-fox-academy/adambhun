@@ -13,7 +13,7 @@ pipeline {
               pwd
               ls
             """
-            docker.build('${REGISTRY} + :${BUILD_NUMBER}', "-f practice/query/Dockerfile")
+            docker.build('${REGISTRY}:${BUILD_NUMBER}', "-f practice/query/Dockerfile")
           }
         }
       }
