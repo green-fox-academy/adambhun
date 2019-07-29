@@ -9,10 +9,11 @@ pipeline {
       steps{
         dir('practice/query'){
           script {
-            sh "pwd"
-            sh "cd practice/query"
-            sh "ls"
-            docker.build REGISTRY + ':$BUILD_NUMBER'
+            sh """
+              pwd
+              ls
+            """
+            docker.build('${REGISTRY} + :${BUILD_NUMBER}', "-f practice/query/Dockerfile")
           }
         }
       }
@@ -35,7 +36,7 @@ pipeline {
 
     stage('Cleanup') {
       steps{
-        sh 'docker rmi $REGISTRY:$BUILD_NUMBER'
+        sh 'docker rmi ${REGISTRY}:${BUILD_NUMBER}'
       }
     }
   }
