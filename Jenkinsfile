@@ -9,11 +9,6 @@ pipeline {
       steps{
         dir('practice/query'){
           script {
-            sh """
-              pwd
-              ls
-              docker build --help
-            """
             docker.build('${REGISTRY}:${BUILD_NUMBER}', "practice/query/")
           }
         }
