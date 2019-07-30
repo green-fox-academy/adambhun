@@ -22,8 +22,10 @@ pipeline {
       steps {
         dir('practice/query'){
           withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-            sh "pwd"
-            sh "./gradlew -Dsonar.host.url=http://localhost:9000 sonarqube"
+            sh """
+              chmod +x gradle
+              gradlew -Dsonar.host.url=http://localhost:9000 sonarqube
+            """
           }
           timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
