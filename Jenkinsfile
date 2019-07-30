@@ -17,7 +17,7 @@ pipeline {
 
     stage('SonarQube') {
       environment {
-        scannerHome = tool 'SonarQubeScanner'
+        scannerHome = tool 'SonarQube Scanner'
       }
       steps {
         dir('practice/query'){
