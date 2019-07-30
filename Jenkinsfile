@@ -16,21 +16,20 @@ pipeline {
     }
 
     stage('SonarQube') {
-      sonarRunner: {
-          analysis: {
-              options: {
-                  ...
-                  sonar: {
-                      login: 'admin',
-                      password: 'admin',
-                      host: {
-                          url: 'http://localhost:9000'
-                      },
-                      ...
-                  },
-                  ...
-              }
+      environment {
+        scannerHome = tool 'Sonar Scanner'
+      }
+      steps {
+        dir('practice/query'){
+          withCredentials([string(credentialsId: 'sonarqube-adambhun', variable: 'sonarqube-adambhun')]) {
+            withSonarQubeEnv('Sonar Scanner') {
+              sh "${scannerHome}/bin/sonar-scanner"
+            }
+            timeout(time: 10, unit: 'MINUTES') {
+              waitForQualityGate abortPipeline: true
+            }
           }
+        }
       }
     }
   }
