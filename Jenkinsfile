@@ -21,7 +21,7 @@ pipeline {
       }
       steps {
         dir('practice/query'){
-          withCredentials([usernamePassword(credentialsId: '', passwordVariable: 'admin', usernameVariable: 'admin')]) {
+          withCredentials([usernamePassword(credentialsId: 'Migrated SonarQube authentication token', passwordVariable: 'admin', usernameVariable: 'admin')]) {
             withSonarQubeEnv('Sonar Scanner') {
               sh "${scannerHome}/bin/sonar-scanner"
             }
