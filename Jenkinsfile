@@ -18,12 +18,11 @@ pipeline {
     stage('SonarQube') {
       environment {
         scannerHome = tool 'Sonar Scanner'
-        credentialsId = 'Migrated SonarQube authentication token'
       }
       steps {
         dir('practice/query'){
           withSonarQubeEnv('Sonar Scanner') {
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=sonarqube-adambhun"
           }
           timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
