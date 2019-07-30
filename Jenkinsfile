@@ -22,7 +22,7 @@ pipeline {
       steps {
         dir('practice/query'){
           sh "pwd"
-          withSonarQubeEnv('Sonar Scanner', '${Migrated SonarQube authentication token}') {
+          withSonarQubeEnv('Sonar Scanner') {
             sh "${scannerHome}/bin/sonar-scanner"
           }
           timeout(time: 10, unit: 'MINUTES') {
