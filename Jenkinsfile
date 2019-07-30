@@ -21,13 +21,11 @@ pipeline {
       }
       steps {
         dir('practice/query'){
-          withCredentials([string(credentialsId: 'sonarqube-adambhun', variable: 'sonarqube-adambhun')]) {
-            withSonarQubeEnv('Sonar Scanner') {
-              sh "${scannerHome}/bin/sonar-scanner"
-            }
-            timeout(time: 10, unit: 'MINUTES') {
-              waitForQualityGate abortPipeline: true
-            }
+          withSonarQubeEnv(credentialsId: 'sonarqube-adambhun') {
+            sh "${scannerHome}/bin/sonar-scanner"
+          }
+          timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
           }
         }
       }
