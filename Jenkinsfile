@@ -21,7 +21,7 @@ pipeline {
       }
       steps {
         dir('practice/query'){
-          withCredentials([string(credentialsId: 'sonarqube-adambhun', variable: 'sonarqube-adambhun')]) {
+          withCredentials([usernamePassword(credentialsId: '', passwordVariable: 'admin', usernameVariable: 'admin')]) {
             withSonarQubeEnv('Sonar Scanner') {
               sh "${scannerHome}/bin/sonar-scanner"
             }
