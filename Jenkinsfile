@@ -16,11 +16,11 @@ pipeline {
     }
 
     stage('SonarQube') {
+      environment {
+        scannerHome = tool 'SonarQubeScanner'
+      }
       steps {
         dir('practice/query'){
-          environment {
-            scannerHome = tool 'SonarQubeScanner'
-          }
           sh "pwd"
           withSonarQubeEnv('Sonar Scanner', 'Migrated SonarQube authentication token') {
             sh "${scannerHome}/bin/sonar-scanner"
