@@ -18,6 +18,7 @@ pipeline {
     stage('SonarQube') {
       environment {
         scannerHome = tool 'Sonar Scanner'
+        credentialsId = 'sonarqube-adambhun'
       }
       steps {
         dir('practice/query'){
