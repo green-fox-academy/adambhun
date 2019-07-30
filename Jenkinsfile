@@ -18,10 +18,10 @@ pipeline {
     stage('SonarQube') {
       environment {
         scannerHome = tool 'Sonar Scanner'
+        credentialsId = 'Migrated SonarQube authentication token'
       }
       steps {
         dir('practice/query'){
-          sh "pwd"
           withSonarQubeEnv('Sonar Scanner') {
             sh "${scannerHome}/bin/sonar-scanner"
           }
