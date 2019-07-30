@@ -17,17 +17,20 @@ pipeline {
 
     stage('SonarQube') {
       sonarRunner: {
-        analysis: {
-          options: {
-            sonar: {
-              login: 'admin',
-              password: 'admin',
-              host: {
-                url: 'http://localhost:9000'
+          analysis: {
+              options: {
+                  ...
+                  sonar: {
+                      login: 'admin',
+                      password: 'admin',
+                      host: {
+                          url: 'http://localhost:9000'
+                      },
+                      ...
+                  },
+                  ...
               }
-            }
           }
-        }
       }
     }
   }
