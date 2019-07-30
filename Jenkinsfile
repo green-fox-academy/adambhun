@@ -16,17 +16,16 @@ pipeline {
     }
 
     stage('SonarQube') {
-      environment {
-        scannerHome = tool 'Sonar Scanner'
-        credentialsId = 'sonarqube-adambhun'
-      }
-      steps {
-        dir('practice/query'){
-          withSonarQubeEnv('Sonar Scanner') {
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.login=sonarqube-adambhun"
-          }
-          timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
+      sonarRunner: {
+        analysis: {
+          options: {
+            sonar: {
+              login: 'admin',
+              password: 'admin',
+              host: {
+                url: 'http://localhost:9000'
+              }
+            }
           }
         }
       }
