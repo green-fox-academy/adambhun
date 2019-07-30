@@ -15,14 +15,19 @@ pipeline {
       }
     }
 
-    stage('Sonarqube') {
+    stage('SonarQube') {
       steps {
-        sh "pwd"
-        withSonarQubeEnv('sonarqube') {
-          sh "${scannerHome}/bin/sonar-scanner"
-        }
-        timeout(time: 10, unit: 'MINUTES') {
-          waitForQualityGate abortPipeline: true
+        dir('practice/query'){
+          environment {
+            scannerHome = tool 'SonarQubeScanner'
+          }
+          sh "pwd"
+          withSonarQubeEnv('Sonar Scanner', 'Migrated SonarQube authentication token') {
+            sh "${scannerHome}/bin/sonar-scanner"
+          }
+          timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+          }
         }
       }
     }
@@ -31,7 +36,6 @@ pipeline {
   post {
     always {
       sh 'docker rmi ${REGISTRY}:${BUILD_NUMBER}'
-      sh 'docker rmi ${REGISTRY}:24'
     }
   }
 }
