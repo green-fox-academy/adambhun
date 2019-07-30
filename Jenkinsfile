@@ -23,7 +23,7 @@ pipeline {
       steps {
         dir('practice/query'){
           withSonarQubeEnv('Sonar Scanner') {
-            sh "${scannerHome}/bin/sonar-scanner"
+            sonar-runner -Dsonar.projectKey=courses-query -Dsonar.projectName=courses-query
           }
           timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
