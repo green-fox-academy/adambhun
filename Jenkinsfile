@@ -22,7 +22,8 @@ pipeline {
       steps {
         withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
           dir('practice/query'){
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh "ls -a"
+            sh "${scannerHome}/bin/sonar-scanner -X"
           }
         }
         timeout(time: 10, unit: 'MINUTES') {
