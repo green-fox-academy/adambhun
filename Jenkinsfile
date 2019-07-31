@@ -9,8 +9,10 @@ pipeline {
   stages {
     stage('Building image') {
       steps{
-        script {
-          docker.build REGISTRY + ':$BUILD_NUMBER'
+        dir('practice/query') {
+          script {
+            docker.build('${REGISTRY}:${BUILD_NUMBER}', 'practice/query')
+          }
         }
       }
     }
@@ -24,11 +26,11 @@ pipeline {
         }
       }
     }
+  }
 
-    stage('Cleanup') {
-      steps{
-        sh 'docker rmi $REGISTRY:$BUILD_NUMBER'
-      }
+  post {
+    always {
+      sh 'docker rmi ${REGISTRY}:${BUILD_NUMBER}'
     }
   }
 }
