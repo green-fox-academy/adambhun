@@ -20,18 +20,16 @@ pipeline {
         scannerHome = tool 'Sonar Scanner'
       }
       steps {
-        withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-          dir('./practice/query'){
-            sh "ls -a"
-            sh "${scannerHome}/bin/sonar-scanner -X"
+        dir('practice/query'){
+          withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
+            sh "${scannerHome}/bin/sonar-scanner"
           }
-        }
-        timeout(time: 10, unit: 'MINUTES') {
-          waitForQualityGate abortPipeline: true
+          timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+          }
         }
       }
     }
-  }
 
   post {
     always {
