@@ -9,7 +9,7 @@ pipeline {
       steps{
         dir('practice/query'){
           script {
-            docker.build('${REGISTRY}:${BUILD_NUMBER}')
+            docker.build('${REGISTRY}:${BUILD_NUMBER}', "practice/query/")
           }
         }
       }
