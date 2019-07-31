@@ -7,10 +7,8 @@ pipeline {
   stages {
     stage('Building image') {
       steps{
-        dir('practice/query'){
-          script {
-            docker.build('${REGISTRY}:${BUILD_NUMBER}', "practice/query/")
-          }
+        script {
+          docker.build('${REGISTRY}:${BUILD_NUMBER}', "practice/query/")
         }
       }
     }
@@ -22,7 +20,8 @@ pipeline {
       steps {
         dir('practice/query'){
           withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-            sh "./gradlew clean sonarqube"
+            // sh "./gradlew clean sonarqube"
+            sh "pwd"
           }
           timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
