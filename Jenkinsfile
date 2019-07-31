@@ -5,15 +5,6 @@ pipeline {
   }
 
   stages {
-    stage('Building image') {
-      steps{
-        dir('practice/query'){
-          script {
-            docker.build('${REGISTRY}:${BUILD_NUMBER}', "practice/query/")
-          }
-        }
-      }
-    }
 
     stage('SonarQube') {
       environment {
@@ -35,10 +26,3 @@ pipeline {
       }
     }
   }
-
-  post {
-    always {
-      sh 'docker rmi ${REGISTRY}:${BUILD_NUMBER}'
-    }
-  }
-}
