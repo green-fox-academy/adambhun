@@ -25,7 +25,7 @@ pipeline {
             sh """
               cd practice/query
               ls -a
-              ${scannerHome}/bin/sonar-scanner
+              ${scannerHome}/bin/sonar-scanner -X
             """
           }
           timeout(time: 10, unit: 'MINUTES') {
