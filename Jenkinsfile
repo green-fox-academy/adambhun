@@ -22,8 +22,11 @@ pipeline {
       steps {
         dir('practice/query'){
           withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-            sh "ls -a"
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh """
+              cd practice/query
+              ls -a
+              ${scannerHome}/bin/sonar-scanner
+            """
           }
           timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
