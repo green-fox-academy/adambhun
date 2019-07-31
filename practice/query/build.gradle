@@ -1,6 +1,13 @@
 plugins {
   id 'org.springframework.boot' version '2.1.3.RELEASE'
   id 'java'
+  id "org.sonarqube" version "2.7"
+}
+
+sonarqube {
+    properties {
+        property 'sonar.projectName'
+    }
 }
 
 apply plugin: 'io.spring.dependency-management'
