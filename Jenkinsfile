@@ -2,28 +2,34 @@ pipeline {
   agent any
   environment {
     REGISTRY = 'greenfox/teaching-material-query-service'
+    DOCKER_CRED = 'foxyfox'
+    DOCKER_IMAGE = ''
   }
 
   stages {
-
-    stage('SonarQube') {
-      environment {
-        scannerHome = tool 'Sonar Scanner'
+    stage('Building image') {
+      steps{
+        script {
+          docker.build REGISTRY + ':$BUILD_NUMBER'
+        }
       }
-      steps {
-        dir('practice/query'){
-          withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-            sh """
-              cd practice/query
-              ./ gradlew clean build
-              ${scannerHome}/bin/sonar-scanner
-            """
-          }
-          timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
+    }
+
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withREGISTRY( '', DOCKER_CRED ) {
+            sh 'docker push $REGISTRY:$BUILD_NUMBER'
           }
         }
       }
     }
+
+    stage('Cleanup') {
+      steps{
+        sh 'docker rmi $REGISTRY:$BUILD_NUMBER'
+      }
+    }
   }
 }
+
