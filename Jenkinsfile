@@ -22,8 +22,7 @@ pipeline {
       steps {
         dir('practice/query'){
           withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-            // sh "./gradlew clean sonarqube"
-            sh "pwd"
+            sh "./gradlew clean sonarqube"
           }
           timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
