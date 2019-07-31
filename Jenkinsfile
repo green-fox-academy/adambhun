@@ -15,7 +15,6 @@ pipeline {
           withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
             sh """
               cd practice/query
-              gradle build
               ${scannerHome}/bin/sonar-scanner
             """
           }
