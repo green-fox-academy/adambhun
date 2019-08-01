@@ -2,8 +2,6 @@ pipeline {
   agent any
   environment {
     REGISTRY = 'greenfox/teaching-material-query-service'
-    DOCKER_CRED = 'foxyfox'
-    DOCKER_IMAGE = ''
   }
 
   stages {
@@ -12,46 +10,15 @@ pipeline {
         scannerHome = tool 'Sonar Scanner'
       }
       steps {
-        dir('TeachingMaterialQueryService'){
-          withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
-            sh '''
-              cd TeachingMaterialQueryService
-              chmod +x gradlew
-              ./gradlew build -DbuildNumber=$BUILD_NUMBER
-              ./gradlew sonarqube      //test reports: ./build/reports/tests/test/index.html
-            '''
-          }
+        withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
+          sh '''
+            cd practice/query
+            chmod +x gradlew
+            ./gradlew build -DbuildNumber=$BUILD_NUMBER
+            ./gradlew sonarqube
+          '''
         }
       }
-    }
-
-    stage('Building Image') {
-      steps{
-        dir('TeachingMaterialQueryService') {
-          script {
-            docker.build('${REGISTRY}:${BUILD_NUMBER}', --build-arg 'version=0.0.${BUILD_NUMBER}'', 'TeachingMaterialQueryService')
-          }
-        }
-      }
-    }
-
-    stage('Deploying Image') {
-      steps{
-        script {
-          docker.withREGISTRY( '', DOCKER_CRED ) {
-            sh 'docker push $REGISTRY:$BUILD_NUMBER'
-          }
-        }
-      }
-    }
-  }
-
-  post {
-    always {
-      sh '''
-        docker rm $(docker stop $(docker ps -a -q --filter ancestor=<image-name> --format="{{.ID}}"))
-        docker rmi ${REGISTRY}:${BUILD_NUMBER}
-      '''
     }
   }
 }
