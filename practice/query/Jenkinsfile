@@ -15,7 +15,7 @@ pipeline {
             sh '''
               cd practice/query
               chmod +x gradlew
-              ./gradlew build -DbuildNumber=$BUILD_NUMBER && cd build/reports/tests/test && ls -a
+              ./gradlew build -DbuildNumber=$BUILD_NUMBER ; cd build/reports/tests/test && ls -a
             '''
           }
         }
