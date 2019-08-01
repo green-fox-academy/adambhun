@@ -7,8 +7,9 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.greenfoxacademy'
-ext.systemProperties= System.properties
-version = '0.0.' + ${SystemProperties.BUILD_NUMBER} + '-SNAPSHOT'
+// ext.systemProperties= System.properties
+// version = '0.0.' + ${SystemProperties.BUILD_NUMBER} + '-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 sonarqube {
