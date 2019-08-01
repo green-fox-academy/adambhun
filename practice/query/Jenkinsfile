@@ -10,6 +10,7 @@ pipeline {
         scannerHome = tool 'Sonar Scanner'
       }
       steps {
+        dir('practice/query'){
           withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
             sh '''
               cd practice/query
