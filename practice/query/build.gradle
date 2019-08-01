@@ -7,7 +7,8 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.greenfoxacademy'
-version = '0.0.1-SNAPSHOT'
+ext.systemProperties= System.properties
+version = '0.0.${SystemProperties.BUILD_NUMBER}-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
