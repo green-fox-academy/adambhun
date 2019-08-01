@@ -11,6 +11,12 @@ ext.systemProperties= System.properties
 version = '0.0.${SystemProperties.BUILD_NUMBER}-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+sonarqube {
+  properties {
+    property 'sonar.junit.reportPaths', 'build/reports/tests/test/'
+  }
+}
+
 repositories {
   mavenCentral()
 }

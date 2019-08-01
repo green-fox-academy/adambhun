@@ -23,6 +23,8 @@ docker rmi $(docker images -q)
 
 //stop container
 docker stop name (eg. infallible_blackwell)
+//stop & remove container based on image name
+docker rm $(docker stop $(docker ps -a -q --filter ancestor=<image-name> --format="{{.ID}}"))
 
 //delete containers
 docker rm $(docker ps -aq)
