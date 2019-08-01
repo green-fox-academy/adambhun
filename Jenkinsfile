@@ -17,7 +17,7 @@ pipeline {
               cd practice/query
               chmod +x gradlew
               ./gradlew build
-              ${scannerHome}/bin/sonar-scanner -X
+              ./gradlew sonarqube
             """
           }
         }
