@@ -12,6 +12,7 @@ pipeline {
       steps {
         withSonarQubeEnv(installationName: 'Sonar Scanner', credentialsId: 'sonarqube-adambhun') {
           sh '''
+            cd practice/query
             chmod +x gradlew
             ./gradlew build -DbuildNumber=$BUILD_NUMBER
             ./gradlew sonarqube
