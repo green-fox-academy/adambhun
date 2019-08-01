@@ -3,4 +3,4 @@ pluginManagement {
     gradlePluginPortal()
   }
 }
-rootProject.name = 'teachingmaterialqueryservice'
+rootProject.name = 'courses-query'
