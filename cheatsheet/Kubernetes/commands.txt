@@ -4,7 +4,7 @@ eval $(minikube docker-env)
 //describe element
 kubectl describe pod query 
 
-//list stuff
+//list stuff - use the -w (--watch) flag to continuously watch for updates
 kubectl get all
 
 //start pod
@@ -33,3 +33,13 @@ kubectl delete -f .
 //show pods w/ labels
 kubectl get po --show-labels
 
+//ssh into container (1 container\pod)
+kubectl exec -it pod-name -- /bin/bash
+//multiple containers\pod
+kubectl exec -it pod-name --container container-name -- /bin/bash
+
+//modify a running service
+kubectl patch service sonar-sonarqube -n sonarqube --type='json' --patch='[{"op": "replace", "path": "/spec/ports/0/nodePort", "value":31111}]'
+
+//get application logs from pod
+kubectl logs -f pod name

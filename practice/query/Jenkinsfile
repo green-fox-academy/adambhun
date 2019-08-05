@@ -17,7 +17,6 @@ pipeline {
               chmod +x gradlew
               ./gradlew build -DbuildNumber=$BUILD_NUMBER
             '''
-            sh 'cd build && ls -a'
           }
         }
       }
