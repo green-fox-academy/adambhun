@@ -22,10 +22,10 @@ sonarqube {
     property 'sonar.projectKey', 'courses-query'
     property 'sonar.projectName', 'courses-query'
     property 'sonar.projectVersion', '1.0'
-    property 'sonar.language java'
-    property 'sonar.tests junit'
+    property 'sonar.language', 'java'
+    property 'sonar.tests', 'junit'
     property 'sonar.sources', 'src'
-    property 'sonar.binaries build/classes'
+    property 'sonar.binaries', 'build/classes'
     // property 'sonar.java.coveragePlugin jacoco'
     // property 'sonar.jacoco.reportPath build/test-reports/jacoco.exec'
   }
