@@ -16,9 +16,9 @@ sonarqube {
   properties {
     // property 'sonar.junit.reportPaths', '../../build/'
     // property 'sonar.junit.reportPaths', "${project.buildDir}/test-results/test"
-    property 'sonar.host.url', 'http://sonarqube.greenfox.academy:9000'
-    property 'sonar.login', 'adambhun'
-    property 'sonar.password', 'asdF9999'
+    // property 'sonar.host.url', 'http://sonarqube.greenfox.academy:9000'
+    // property 'sonar.login', 'adambhun'
+    // property 'sonar.password', 'asdF9999'
     property 'sonar.projectKey', 'courses-query'
     property 'sonar.projectName', 'courses-query'
     property 'sonar.projectVersion', '1.0'
