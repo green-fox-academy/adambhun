@@ -33,6 +33,9 @@ kubectl delete -f .
 //show pods w/ labels
 kubectl get po --show-labels
 
+//show pods w/ details
+kubectl get pods -o wide
+
 //ssh into container (1 container\pod)
 kubectl exec -it pod-name -- /bin/bash
 //multiple containers\pod
@@ -42,4 +45,7 @@ kubectl exec -it pod-name --container container-name -- /bin/bash
 kubectl patch service sonar-sonarqube -n sonarqube --type='json' --patch='[{"op": "replace", "path": "/spec/ports/0/nodePort", "value":31111}]'
 
 //get application logs from pod
-kubectl logs -f pod name
+kubectl logs pod_name
+
+//cop79 files between EC2 and own machine
+scp -i /home/adwork/Desktop/Deplyoment/Terraform-kops-bootstrap/ownsecond.pem ~/*.yaml ec2-user@ec2-18-185-118-105.eu-central-1.compute.amazonaws.com:/tmp

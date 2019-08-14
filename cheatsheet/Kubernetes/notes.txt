@@ -6,7 +6,16 @@ persistent volume - volume connected to cluster, not node
 
 pod - logical group of containers
 
-deployment - num of pods on cluster
+deployment - replicaset with ability to update\rollback with no outage
+
+daemonset - container that runs on every node
+
+statefulset - replicaset with fixed name (foo1, foo2....)
+
+configmap - settings for any pod in the cluster to subscribe to
+
+kubectl client - kube-system gateway api. Access resources in your cluster with it, without having to set up a load balancer. Credentials: user: admin, pswd: kubectl config view --minify
+
 
 //nodeport
 visible outside the cluster

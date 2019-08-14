@@ -1,0 +1,18 @@
+//installation
+wget https://get.helm.sh/helm-v2.14.3-linux-arm64.tar.gz
+tar zxvf helm-v2.14.3-linux-arm64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/
+rm helm-v2.14.3-linux-arm64.tar.gz
+rm -rf ./linux-amd64/
+
+//create the tiller pod in kubesystem namespace
+helm init
+
+//fix prviliges for default namespace deploy
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+
+//install a chart
+helm repo update
+helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
