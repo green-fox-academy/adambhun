@@ -67,3 +67,58 @@ glob2 - search for files
 os
 numPy - array manipulation
 subprocess
+
+//iteration
+https://opensource.com/article/18/3/loop-better-deeper-look-iteration-python
+
+//problem:variable value doesn't change
+explanation:
+x = 1
+def f():
+    print x
+def g():
+    print x
+    x = 2
+f() #prints 1
+g() #throws an error
+In f, you haven't assigned a value to x, so it will get the value of x from the global scope. But once you assign a value inside the function as in g, x will be assumed to be a local variable, and since the print statement came before the assignment, x had no value to print.
+The other posts mentioned the two solutions. You can either pass the value in as an argument (better) or you can explicitly declare x a global variable using the global keywor
+
+//inserting variable in a string
+//this doesn't work
+  if re.search(f"[{character}]{1}[A-Z]{2}[-][0-9]{3}", cell):
+    return True
+  else:
+    return False
+//but this does
+  if re.match("[%c]{1}[A-Z]{2}[-][0-9]{3}" %character, cell):
+//this too
+  if len(data) == 2:
+    log_text = f"\n\n{data[0]} - {data[1]}"
+
+//for simple arithmetic use the operator module instead of lambda functions
+
+//problem: function needs arguments, but they can't be passed (eg.: pandas df.apply)
+solutions:
+-use functools.partial
+-write a lambda for it, eg.: lambda x: your_func(a,b,c,d,...,x)
+
+//declare variables in a for loop - bad fuckin practice
+It is really bad idea, but...
+for x in range(0, 9):
+    globals()['string%s' % x] = 'Hello'
+and then for example:
+print(string3)
+will give you:
+Hello
+
+
+//pandas
+//drop row on condition
+df.drop(df.loc[df['line_race']==0].index, inplace=True)
+
+//pass variable to pandas.Dataframe()
+import csv, pandas, sys
+from io import StringIO
+feed = StringIO(house)
+pandas.read_csv(feed, sep = ",", header = 0, engine='python')

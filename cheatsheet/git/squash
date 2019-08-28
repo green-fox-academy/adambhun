@@ -1,0 +1,17 @@
+squash
+
+Na itt vagyok. Szóval több féleképpen neki lehet állni, amiket írtál is.
+Én általában rebaseelni szoktam
+git rebase -i origin/develop például, vagy a branch amihez képest szeretnéd
+
+ugye ha van 3 commitod pl, akkor a vimben így squasholod:
+pick 1.commit
+squash 2.commit
+squash 3.commit
+Ha van közte conflict, akkor meg fog állni a rebase, ilyenkor meg kell oldani a conflictot, addolni, és git rebase --continue-val tovább menni
+Abban az esetben ha tegyük fel készen vagy, 1 commitod van, és mégis kér a Peti mondjuk valami változtatást, ezt nem kell újra csinálnod, hanem commitolhatsz így: git commit --amend
+ezzel feldob egy vim ablakot az előző commitodról, és :wq után ( vagy :x, assszem azt is szokták használini) automatikusan hozzádobja a változtatásokat az előző commithoz
+Mivel mindkét esetben megváltoztatod a commit historydat, csak force pusholni fogsz tudni
+Remélem tudtam segíteni, ha nem mondtam új infót vagy így sem megy, akkor beszéljünk akár slacken ilyen képernyőmegosztással, és megnézzük
+
+gfcourses-token -  bd2d152119f56b599de6e40266e00ab2ba04526b
