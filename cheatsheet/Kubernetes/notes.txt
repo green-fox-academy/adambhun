@@ -35,9 +35,35 @@ containers
 apps
 
 
-Yyou should be able to ssh into any node in your cluster and curl both IPs. Note that the containers are not using port 80 on the node, nor are there any special NAT rules to route traffic to the pod. This means you can run multiple nginx pods on the same node all using the same containerPort and access them from any other pod or node in your cluster using IP. Like Docker, ports can still be published to the host node’s interfaces, but the need for this is radically diminished because of the networking model
+You should be able to ssh into any node in your cluster and curl both IPs. Note that the containers are not using port 80 on the node, nor are there any special NAT rules to route traffic to the pod. This means you can run multiple nginx pods on the same node all using the same containerPort and access them from any other pod or node in your cluster using IP. Like Docker, ports can still be published to the host node’s interfaces, but the need for this is radically diminished because of the networking model
 
 
 //DNS in k8s
 //FQDN example
 pod: database - IP ADDRESS database.namespace.svc.dluster.local
+
+//service account
+provides an identity for processes that run in a Pod.
+
+
+//RBAC
+role-based access control
+//role is for namespace, clusterRole is for entire cluster. Likewise with RoleBinding
+
+//resources
+https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits
+//millicore
+// a CPU core split into 1000 units
+//mebibyte - MiB (can be something else too)
+1024|2 bytes
+//ECU
+EC2 Compute Unit - standardied unit (~1.0 ghz Intel Xeon 2007)
+//vCPU
+the performance it represents depends on the instance t79pe
+//requests
+hint at what the container needs (pod allocation for node)
+//limits
+enforced @ runtime. Max CPU \ memory usage. exceeding memory limit leads to crash.
+//limitRange
+default value for limit in name
+

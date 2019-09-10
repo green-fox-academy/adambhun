@@ -49,3 +49,6 @@ kubectl logs pod_name
 
 //cop79 files between EC2 and own machine
 scp -i /home/adwork/Desktop/Deplyoment/Terraform-kops-bootstrap/ownsecond.pem ~/*.yaml ec2-user@ec2-18-185-118-105.eu-central-1.compute.amazonaws.com:/tmp
+
+//list services in a namespace
+kubectl get svc -n kube-system

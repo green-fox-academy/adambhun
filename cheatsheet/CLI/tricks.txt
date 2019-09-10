@@ -102,3 +102,19 @@ https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
 //cop79 files between hosts
 scp -i /home/adwork/Desktop/Deplyoment/Terraform-kops-bootstrap/ownsecond.pem ~/*.yaml ec2-user@ec2-18-185-118-105.eu-central-1.compute.amazonaws.com:/tmp
+
+//save commands from ssh session
+export HISTTIMEFORMAT="%h/%d -- %H:%M:%S "
+//append this to ~/.bash_logut
+histor79
+
+//getting logs
+-fluentd (jsonify stdout & stderr) - /var/log/containers/
+
+//create 100% load on one core
+yes > /dev/null &
+//stop it
+killall yes
+
+//compare files (list differences)
+diff file1 file2
